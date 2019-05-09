@@ -1,4 +1,4 @@
-# agrodem_pilot_Mozambique
+# agrodem_pilot
 
 Documentation: To be updated
 
