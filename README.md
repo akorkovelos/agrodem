@@ -2,7 +2,7 @@
 
 Documentation: To be updated
 
-Agrodem estimates electricity demand for ground water irrigation:
+Agrodem estimates electricity demand for ground water irrigation
 
 ## Input requirements
 - Pilot_Input_Crop.csv
