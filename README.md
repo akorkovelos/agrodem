@@ -3,12 +3,11 @@
 Documentation: To be updated
 
 Agrodem provides an estimate of water and electricity demand for ground water irrigation.
-The current model is designed to run a simple analysis for a selection of crops (maize, cassava) and locations in Mozambique.
 Results are solely indicative.
 
 ## Input requirements
-- Pilot_Input_Crop.csv (per crop)
-- Pilot_Input_Crop_Calendar.xlsx (per crop)
+- Pilot_Input_Crop.csv 
+- Pilot_Input_Crop_Calendar.xlsx 
 - Pilot_Input_Fuel_Prices.xlsx
 
 ## Model usage (To be updated)
