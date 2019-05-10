@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 **Requirements**
 
-gons_test requires Python >= 3.5 with the following packages installed:
+agrodem_pilot requires Python >= 3.5 with the following packages installed:
 - cycler==0.10.0
 - kiwisolver==1.1.0
 - matplotlib==3.0.3
