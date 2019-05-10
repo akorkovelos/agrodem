@@ -2,17 +2,19 @@
 
 Documentation: To be updated
 
-Agrodem estimates electricity demand for ground water irrigation
+Agrodem provides an estimate of water and electricity demand for ground water irrigation.
+The current model is designed to run a simple analysis for a selection of crops (maize, cassava) and locations in Mozambique.
+Results are solely indicative.
 
 ## Input requirements
-- Pilot_Input_Crop.csv
-- Pilot_Input_Crop_Calendar.xlsx
+- Pilot_Input_Crop.csv (per crop)
+- Pilot_Input_Crop_Calendar.xlsx (per crop)
 - Pilot_Input_Fuel_Prices.xlsx
 
 ## Model usage (To be updated)
 
-- Download and install anaconda 
-- Make sure jupyter notebook is active and functional
+- Download and install python through anaconda distribution 
+- Make sure jupyter notebook is active
 - Install requirements as described below
 - Open and run notebook in order; Part A - Part B and Part C
 
@@ -23,7 +25,7 @@ Agrodem estimates electricity demand for ground water irrigation
 Download or clone the repository and install the required packages:
 
 ```
-git clone https://github.com/alekordESA/gonset-example.git
+git clone https://github.com/alekordESA/agrodem.git
 cd agrodem
 pip install -r requirements.txt
 ```
