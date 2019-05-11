@@ -2,7 +2,7 @@
 
 Documentation: To be updated
 
-Agrodem provides an estimate of water and electricity demand for ground water irrigation.
+*agrodem* provides an estimate of water and electricity demand for ground water irrigation.
 The following example studies the case of cassava in the Zambezia province in Mozambique.
 Note! input data are not representative and results are only indicative.
 
