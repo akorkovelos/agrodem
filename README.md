@@ -6,7 +6,7 @@ Agrodem provides an estimate of water and electricity demand for ground water ir
 The following example studies the case of cassava in the Zambezia province in Mozambique.
 Note! input data are not representative and results are only indicative.
 
-Sample resutl look like this
+Visualized in QGIS, sample results look like this:
 
 ![SampleResult](SampleResult.png)
 
