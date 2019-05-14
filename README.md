@@ -2,11 +2,11 @@
 
 Documentation: To be updated
 
-Agrodem provides an estimate of water and electricity demand for ground water irrigation.
+**agrodem** provides an estimate of water and electricity demand for ground water irrigation.
 The following example studies the case of cassava in the Zambezia province in Mozambique.
-Note! input data are not representative and results are only indicative.
+**Note!** input data are not representative and results are only indicative.
 
-Sample resutl look like this
+Visualized in QGIS, sample results look like this:
 
 ![SampleResult](SampleResult.png)
 
@@ -47,4 +47,4 @@ agrodem_pilot requires Python >= 3.5 with the following packages installed:
 - pytz==2019.1
 - scipy==1.2.1
 - six==1.12.0
-- pyeto that can be installed from https://github.com/woodcrafty/PyETo.git
+- **pyeto** that can be installed from https://github.com/woodcrafty/PyETo.git
