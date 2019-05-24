@@ -1,6 +1,8 @@
 # agrodem_pilot
 
-Documentation: To be updated
+[![Documentation Status](https://readthedocs.org/projects/agrodem/badge/?version=latest)](https://agrodem.readthedocs.io/en/latest/?badge=latest)
+
+Documentation available [here](https://agrodem.readthedocs.io/en/latest/)
 
 **agrodem** provides an estimate of water and electricity demand for ground water irrigation.
 The following example studies the case of cassava in the Zambezia province in Mozambique.
