@@ -20,7 +20,7 @@ Visualized in QGIS, sample results look like this:
 - Download and install python through anaconda distribution 
 - Make sure jupyter notebook is active
 - Install requirements as described below
-- Open and run notebook in order; Part A - Part B and Part C
+- Open and run notebook in order; Part 1 - Part 2 and Part 3
 
 ## Installation
 
