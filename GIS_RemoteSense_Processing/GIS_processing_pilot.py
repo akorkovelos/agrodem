@@ -6,6 +6,8 @@ import osr
 import ogr
 import rasterio.mask
 import time
+import os
+import re
 from rasterio.warp import calculate_default_transform, reproject
 from rasterio.enums import Resampling
 from rasterstats import point_query
@@ -162,15 +164,15 @@ reproj(inpath = hcData,
 
 data = gpd.read_file(fp + maize_MOZ_points)
 data['maize_h_HC'] = point_query(fp + maize_MOZ_points, fp + hcData_proj)
-data.to_file(fp + maize_MOZ_grid_cell_1km)
+#data.to_file(fp + maize_MOZ_grid_cell_1km)
 
-df = data
+#df = data
 # How to deal with NaN or -9999 values?
-df = data.drop('geometry', axis=1)
-df['lon'] = data.geometry.apply(lambda p: p.x)
-df['lat'] = data.geometry.apply(lambda p: p.y)
+#df = data.drop('geometry', axis=1)
+#df['lon'] = data.geometry.apply(lambda p: p.x)
+#df['lat'] = data.geometry.apply(lambda p: p.y)
 
-df.to_csv(fp + maize_MOZ_data )
+#df.to_csv(fp + maize_MOZ_data )
 
 
 ################### Extract GEE image features ###################
@@ -199,14 +201,98 @@ reproj(inpath = gee_path+evi,
 data['ndvi'] = point_query(fp + maize_MOZ_points, gee_path + ndvi_proj)
 data['evi'] = point_query(fp + maize_MOZ_points, gee_path + evi_proj)
 
-data.to_file(fp + "data_GEE.shp")
+
+################### Extract Climatic Parameters - WorldClimV2 ###################
+#Monthly variation - January selected for pilot testing
+worldClim_path = "/Users/kostas/Desktop/agroDemandGIS/WorldClimV2/input/"
+worldClim_path_proj = "/Users/kostas/Desktop/agroDemandGIS/WorldClimV2/reproj/"
+
+worldClim_files=[]
+worldClim_files_proj=[]
+
+print ("Reading climate data...")
+
+for i in os.listdir(worldClim_path):
+    if i.endswith('.tif'):
+        worldClim_files.append(i)
+
+for i in worldClim_files:
+    print ("Reprojecting..." + i)
+    idx = i.index(".tif")
+    reproj(inpath=worldClim_path + i,
+           outpath=worldClim_path_proj + i[:idx] + "_proj" +i[idx:] ,
+           new_crs='EPSG:32737',
+           factor=1)
+
+
+for i in os.listdir(worldClim_path_proj):
+    if i.endswith('.tif'):
+        worldClim_files_proj.append(i)
+
+
+for i in worldClim_files_proj:
+    substr = re.findall("_[a-z]{4}_", i)
+    columName = substr[0].replace("_","")
+    data[columName] = point_query(fp + maize_MOZ_points, worldClim_path_proj + i)
+
+
+################### Extract Soil Parameters - AfricaSoilGrids ###################
+#sample input parameters
+
+soilGrids_path = "/Users/kostas/Desktop/agroDemandGIS/AfricaSoil/"
+soilGrids_path_proj = "/Users/kostas/Desktop/agroDemandGIS/AfricaSoil/reproj/"
+
+soilGrid_files = []
+soilGrid_files_proj = []
+
+print ("Reading soil data...")
+
+for i in os.listdir(soilGrids_path):
+    if i.endswith('.tif'):
+        soilGrid_files.append(i)
+
+
+for i in soilGrid_files:
+    print ("Reprojecting..." + i)
+    idx = i.index(".")
+    reproj(inpath=soilGrids_path + i,
+           outpath=soilGrids_path_proj + i[:idx] + "_proj" +i[idx:] ,
+           new_crs='EPSG:32737',
+           factor=1)
+
+for i in os.listdir(soilGrids_path_proj):
+    if i.endswith('.tif'):
+        soilGrid_files_proj.append(i)
+
+for i in soilGrid_files_proj:
+    substr = re.findall("_(.+?)_", i)
+    columName = substr[0]
+    data[columName] = point_query(fp + maize_MOZ_points, soilGrids_path_proj + i)
+
+
+# Elevation + slope
+elevation_path = "/Users/kostas/Desktop/agroDemandGIS/AfricaSoil/"
+elevation_path_proj = "/Users/kostas/Desktop/agroDemandGIS/AfricaSoil/reproj/"
+
+elev = "SRTM_SE_250m.tif"
+elev_proj = "SRTM_SE_250m_proj.tif"
+
+print ("Reprojecting..." + elev)
+reproj(inpath = elevation_path + elev,
+       outpath = elevation_path_proj + elev_proj,
+       new_crs = 'EPSG:32737',
+       factor = 1)
+
+data['elev'] = point_query(fp + maize_MOZ_points, elevation_path_proj + elev_proj)
+
+data.to_file(fp + "data_GEE_WorldClim_SoilGrids_Elev.shp")
 
 df = data
 df = data.drop('geometry', axis=1)
 df['lon'] = data.geometry.apply(lambda p: p.x)
 df['lat'] = data.geometry.apply(lambda p: p.y)
 
-df.to_csv(fp + "data_GEE.csv" )
+df.to_csv(fp + "data_GEE_WorldClim_SoilGrids_Elev.csv" )
 
 end = time.time()
 print("Executed in: {0} mins".format(round((end - start)/60, 2)))
