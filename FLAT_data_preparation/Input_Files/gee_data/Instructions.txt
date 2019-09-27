@@ -1,0 +1,2 @@
+The GEE_biovar_extraction code in this directory can be used to extract biophysical characteristics from 
+Google Earth Engine (GEE). Layers shall be extracted, projected to the proper crs and placed in this directory.
