@@ -1,2 +1,0 @@
-This file contains all crop locations represented as vector points. 
-Each point is attributed with all biophysical characteristics that will be used in the downscaling process with FLAT.

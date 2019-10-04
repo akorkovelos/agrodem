@@ -1,2 +1,0 @@
-AfricaSoil maps can be used to extract some biophysical characteristics.
-Layers shall be extracted and placed in this directory.

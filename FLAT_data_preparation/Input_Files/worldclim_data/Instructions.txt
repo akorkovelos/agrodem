@@ -1,2 +1,0 @@
-WorldClimV2 data can be used to extract some of the biophysical characteristics (wind, solar, teperature and precipitation).
-Layers shall be extracted and placed in this directory.
