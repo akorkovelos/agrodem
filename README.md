@@ -1,28 +1,26 @@
-# agrodem_pilot
+# agrodem
 
 [![Documentation Status](https://readthedocs.org/projects/agrodem/badge/?version=latest)](https://agrodem.readthedocs.io/en/latest/?badge=latest)
 
 Documentation available [here](https://agrodem.readthedocs.io/en/latest/)
 
-**agrodem** provides an estimate of water and electricity demand for ground water irrigation.
-The following example studies the case of cassava in the Zambezia province in Mozambique.
-**Note!** input data are not representative and results are only indicative.
+The **agrodem** model provides an estimate of water and electricity requirements for ground and/or surface water irrigation. It works for one crop at a time. Statial distribution of this crop over the area of interest (AoI) can represent current or projected values. Supporting scripts for downscaling/resampling tabular crop data is also available in this repo. 
+
+## Content
+
+- **Downscaling** directory contains scripts, Qgis plugin and sample files needed to prepare input files to the FLAT model
+- **FLAT_model** directory contains scripts supporting the FLAT model
+- **Irrigation_model** directory contains scripts, Qgis plugin and sample files needed to prepare input files to the agrodem model
+
+The sample files can be used to estimate maize irrigation needs in Mozambique. **Note!** that input data are not fully representative and results are only indicative.
 
 Visualized in QGIS, sample results look like this:
 
 ![SampleResult](SampleResult.png)
 
 ## Input requirements
-- Pilot_Input_Crop_Cassava.csv 
-- Pilot_Input_Crop_Calendar.xlsx
-- Pilot_Input_Fuel_Prices.xlsx
-
-## Model usage (To be updated)
-
-- Download and install python through anaconda distribution 
-- Make sure jupyter notebook is active
-- Install requirements as described below
-- Open and run notebook in order; Part 1 - Part 2 and Part 3
+- Sample_Moz_Maize_1km.csv 
+- Sample_Maize_Crop_Calendar.xlsx
 
 ## Installation
 
@@ -38,15 +36,5 @@ pip install -r requirements.txt
 
 **Requirements**
 
-agrodem_pilot requires Python >= 3.5 with the following packages installed:
-- cycler==0.10.0
-- kiwisolver==1.1.0
-- matplotlib==3.0.3
-- numpy==1.16.3
-- pandas==0.24.2
-- pyparsing==2.4.0
-- python-dateutil==2.8.0
-- pytz==2019.1
-- scipy==1.2.1
-- six==1.12.0
-- **pyeto** that can be installed from https://github.com/woodcrafty/PyETo.git
+agrodem_pilot requires Python >= 3.5. All required python packages/modules are included in the ```requirements.txt```.
+**Note** that ```pyeto``` is also needed and can be installed from https://github.com/woodcrafty/PyETo.git
