@@ -1,0 +1,2 @@
+FLAT model can be downloaded from https://mygeohub.org/resources/flat. Instructions on how to run the model are available on
+user manuam <<https://agrodem.readthedocs.io/en/latest/>>
