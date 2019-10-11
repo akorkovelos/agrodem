@@ -44,8 +44,8 @@ agrodem_pilot requires Python >= 3.5. All required python packages/modules are i
 ## Credits
 
 **Conceptualization & Methodological review :** [Alexandros Korkovelos](https://github.com/akorkovelos) & [Konstantinos Pegios](https://github.com/kopegios)<br />
-**Code development** [Konstantinos Pegios](https://github.com/kopegios) & [Alexandros Korkovelos](https://github.com/akorkovelos) <br />
+**Code development** [Konstantinos Pegios](https://github.com/kopegios), [Alexandros Korkovelos](https://github.com/akorkovelos) & [Babak Khavari](https://github.com/babakkhavari)<br />
 **Review, Updates, Modifications:** [Alexandros Korkovelos](https://github.com/akorkovelos), [Youssef Almulla](https://github.com/JZF07) & [Camilo Ramírez](https://github.com/camiloramirezgo) <br />
-**Supervision, Review and Advisory support:** [Mark Westcott](https://www.vivideconomics.com/mark-westcott/), [Neeraj Baruah](https://www.vivideconomics.com/neeraj-baruah/) & [Ines Pozas Franco](https://www.vivideconomics.com/ines-pozas-franco/)
+**Supervision, Review and Advisory support:** [Mark Westcott](https://www.vivideconomics.com/mark-westcott/), [Neeraj Baruah](https://www.vivideconomics.com/neeraj-baruah/) & [Ines Pozas Franco](https://www.vivideconomics.com/ines-pozas-franco/) <br />
 **Funding:** The World Bank (contract number: 7190531), [KTH](https://www.kth.se/en/itm/inst/energiteknik/forskning/desa/welcome-to-the-unit-of-energy-systems-analysis-kth-desa-1.197296)
 
