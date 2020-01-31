@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = 'agrodem'
-copyright = '2019 - KTH dESA'
-author = 'KTH dESA'
+copyright = '2020 - KTH dESA'
+author = 'Alexandros Korkovelos'
 
 # The short X.Y version
-version = 'Version 2019.0'
+version = 'Version 2020.0'
 # The full version, including alpha/beta/rc tags
-release = '24-05-2019'
+release = '31-01-2020'
 
 
 # -- General configuration ---------------------------------------------------
