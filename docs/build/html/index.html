@@ -85,11 +85,10 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Irrigation model.html">Irrigation model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Downscaling.html">Downscaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Irrigation model.html">The Irrigation model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Scenario development.html">Mozambique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Sample results.html">Iteroperability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scenario development.html">Scenario development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example case study.html">Example case study</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contact.html">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="License.html">Licence</a></li>
 </ul>
@@ -161,34 +160,42 @@
 <p>Achieving universal electricity access by 2030 will require a rapid increase in the rate of new connections and in levels of investment, particularly in countries with low level of access to electricity. The challenge is significant. Designing and selecting the optimal electrification approach requires access to reliable data and information regarding electricity resource availability, demand levels, economic activity and functional infrastructure to name a few.</p>
 <p>The paucity of such information may hamper electrification progress. However, this situation is gradually being improved with the increasing availability of new data and analytical tools, especially in the field of geospatial analysis. Geographic Information Systems (GIS) and remote sensing techniques are becoming openly available and can now provide a range of location-specific information that has not been previously accessible. Take for example the field of agriculture, where data is rapidly approaching the scale of ‘big data’. They can provide farm stakeholders with spatial and temporal information about climate and local weather, soil conditions, crop quality, field biodiversity, and crop yields.</p>
 <p>Inclusion of agricultural electricity demand can enhance the richness of the geospatial electrification planning process. To date, demand estimation has typically depended on measurement of population density and an assumed average residential demand. On occasion, this is augmented by including large industrial and mining load. However, existing and potential demand for electricity from agricultural is missed by this process.</p>
-<p>This document presents an analytical and spatially explicit approach for estimating aspects of electricity requirements related to agricultural activities. Documentation is not exhaustive and only aims to provide a clearer understanding of the main methodological steps as well as to provide direct links to open source code developed to support this exercise. Detailed documentation is available <a class="reference external" href="Addlinkherewhenready">here</a>.</p>
-<p>Note that this work has been a collaborative effort between <a class="reference external" href="https://www.vivideconomics.com/">Vivid Economics</a> and <a class="reference external" href="https://www.energy.kth.se/research/energy-systems">KTH Royal Institute of Technology</a> and is part of a multi-year <a class="reference external" href="https://www.esmap.org/">ESMAP</a>-funded project, Geospatial Electrification Planning in the Africa Region (P165617) aiming to facilitate the execution of geospatial electrification planning activities in various sub-Saharan African countries.</p>
+<p>This document presents an analytical and spatially explicit approach for estimating aspects of electricity requirements related to agricultural activities.  The underlying work has been a collaborative effort between <a class="reference external" href="https://www.vivideconomics.com/">Vivid Economics</a> and <a class="reference external" href="https://www.energy.kth.se/research/energy-systems">KTH Royal Institute of Technology</a> and is part of a multi-year <a class="reference external" href="https://www.esmap.org/">ESMAP</a>-funded project, Geospatial Electrification Planning in the Africa Region (P165617) aiming to facilitate the execution of geospatial electrification planning activities in various sub-Saharan African countries.</p>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Overview.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#general-info">General info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#recommended-navigation-flow">Recommended navigation flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Irrigation model.html">Irrigation model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#input-data-parameters">Input data &amp; parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#code-processes">Code &amp; processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#output-data">Output data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#special-notes">Special notes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Downscaling.html">Downscaling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#input-data-parameters">Input data &amp; parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#code-processes">Code &amp; processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#output-data">Output data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#special-notes">Special notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Irrigation model.html">The Irrigation model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#scope">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scenario development.html">Scenario development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Scenario development.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scenario development.html#input-data-parameters">Input data &amp; parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scenario development.html#code-processes">Code &amp; processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scenario development.html#output-data">Output data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Scenario development.html#special-notes">Special notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Scenario development.html">Mozambique</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Scenario development.html#scope">Scope</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Sample results.html">Iteroperability</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Sample results.html#scope">Scope</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="FAQ.html#scope">Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example case study.html">Example case study</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Example case study.html#scope">Scope</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Contact.html">Contact</a><ul>

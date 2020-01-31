@@ -1,4 +1,4 @@
-﻿Iteroperability
+﻿Example case study
 =================================
 
 Scope

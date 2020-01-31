@@ -7,9 +7,7 @@ The paucity of such information may hamper electrification progress. However, th
 
 Inclusion of agricultural electricity demand can enhance the richness of the geospatial electrification planning process. To date, demand estimation has typically depended on measurement of population density and an assumed average residential demand. On occasion, this is augmented by including large industrial and mining load. However, existing and potential demand for electricity from agricultural is missed by this process. 
 
-This document presents an analytical and spatially explicit approach for estimating aspects of electricity requirements related to agricultural activities. Documentation is not exhaustive and only aims to provide a clearer understanding of the main methodological steps as well as to provide direct links to open source code developed to support this exercise. Detailed documentation is available `here <Add link here when ready>`_.
-
-Note that this work has been a collaborative effort between `Vivid Economics <https://www.vivideconomics.com/>`_ and `KTH Royal Institute of Technology <https://www.energy.kth.se/research/energy-systems>`_ and is part of a multi-year `ESMAP <https://www.esmap.org/>`_-funded project, Geospatial Electrification Planning in the Africa Region (P165617) aiming to facilitate the execution of geospatial electrification planning activities in various sub-Saharan African countries. 
+This document presents an analytical and spatially explicit approach for estimating aspects of electricity requirements related to agricultural activities.  The underlying work has been a collaborative effort between `Vivid Economics <https://www.vivideconomics.com/>`_ and `KTH Royal Institute of Technology <https://www.energy.kth.se/research/energy-systems>`_ and is part of a multi-year `ESMAP <https://www.esmap.org/>`_-funded project, Geospatial Electrification Planning in the Africa Region (P165617) aiming to facilitate the execution of geospatial electrification planning activities in various sub-Saharan African countries. 
 
 
 Contents
@@ -19,11 +17,10 @@ Contents
    :maxdepth: 3
 
    Overview
-   Downscaling
    Irrigation model
+   Downscaling
    Scenario development
-   Sample results
-   FAQ
+   Example case study
    Contact
    License
 

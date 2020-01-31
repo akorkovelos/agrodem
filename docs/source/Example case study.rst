@@ -1,4 +1,4 @@
-﻿FAQ
+﻿Example case study
 =================================
 
 Scope
