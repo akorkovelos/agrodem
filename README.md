@@ -4,27 +4,28 @@
 
 Documentation available [here](https://agrodem.readthedocs.io/en/latest/) (under development)
 
-The **agrodem** model provides an estimate of water and electricity requirements for ground and/or surface water irrigation. It works for one crop at a time. Statial distribution of this crop over the area of interest (AoI) can represent current or projected values. Supporting scripts for downscaling/resampling tabular crop data is also available in this repo. 
+The **agrodem** model provides an estimate of water and electricity requirements for ground and/or surface water irrigation. It works for one crop at a time. Statial distribution of this crop over the area of interest (AoI) can represent current or projected values. This repository provides code, material (to the extent possible) and instructions for replicating and/or customizing the model as needed.
 
 ## Content
 
-- **Downscaling** directory contains scripts, Qgis plugin and sample files needed to prepare input files to the FLAT model
-- **FLAT_model** directory contains scripts supporting the FLAT model
-- **Irrigation_model** directory contains scripts, Qgis plugin and sample files needed to prepare input files to the agrodem model
-- **agrodem.ipynb** the model
-- **pyeto** directory contains contains modules needed to properly run the agrodem.ipynb
-- **Sample_results** directory contains indicating results (and html map) of the agrodem model
-- **docs** directory contains supporting documentation for running the analysis
-- Sample_Moz_Maize_1km.csv 
-- Sample_Maize_Crop_Calendar.xlsx
+- **agrodem.ipynb** contains the core code of the irrigation model
+- **agrodem_sample_input_data** directory contains sample input data for testing; data represent 1000 maize locations in Mozambique
+	- Pilot_Moz_Maize_Sample_1km.csv
+	- Pilot_Input_Crop_Calendar_Maize.xlsx
+- **agrodem_sample_output_data** directory contains indicative results (and html map) of the agrodem model
+- **pyeto** directory contains modules needed to properly run agrodem.ipynb
+- **docs** directory contains supporting project documentation
+- **agrodem_preprocessing** directory contains scripts, Qgis plugins and sample files needed to prepare input files to the agrodem model
+	- Preping
+	- Downscaling (preping - FLAT model)
+	- Future scenarios
+- **agrodem_postprocessing** directory contains scripts and sample files related to post analysis (post-harvesting - crossvalidation)
+- **agrodem_environment.yml** environment info for setting up package requirements related only to the agrodem.ipynb
+-**full_project_environment.yml** environment info for setting up package requirements for all supporting processes in this repository
 
-The sample files can be used to estimate maize irrigation needs in Mozambique. **Note!** that input data are not fully representative and results are only indicative.
+**Note!** that sample input/output data are not fully representative but only indicative for Mozambique.
 
-Visualized, the sample results may look like this:
-
-![SampleResult](SampleResult.png)
-
-## Installation
+## Setting up the environment & running the model
 
 **Install from GitHub**
 
@@ -62,7 +63,10 @@ With the environment activated, you can now move to the agrodem directory and st
 ..\agrodem> jupyter notebook 
 ```
 
-**Note** that ```pyeto``` is also needed and can be installed from https://github.com/woodcrafty/PyETo.git
+**Note 1** Use full_project_environment.yml under the same instructions to set up a supporting environment for all processes described in this repo.
+
+**Note 2** that ```pyeto``` is also needed and can be installed from https://github.com/woodcrafty/PyETo.git
+
 
 ## Credits
 
