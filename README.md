@@ -63,7 +63,7 @@ With the environment activated, you can now move to the agrodem directory and st
 ..\agrodem> jupyter notebook 
 ```
 
-**Note 1** Use full_project_environment.yml under the same instructions to set up a supporting environment for all processes described in this repo.
+**Note 1** Use ```full_project_environment.yml``` under the same instructions to set up a supporting environment for all processes described in this repo.
 
 **Note 2** that ```pyeto``` is also needed and can be installed from https://github.com/woodcrafty/PyETo.git
 
