@@ -1,0 +1,20 @@
+The following layers must be collected for the area of interest. 
+For Mozambique the layers are available at <<provide_download_link>>.
+Simply download the file and place it in this directory.
+
+-Average temperature 
+-Average solar irradiation 
+-Average precipitation 
+-Average wind speed
+-Soil Ph in H20
+-Depth to bedrock
+-Bulk density
+-Clay content
+-Texture class
+-Soil organic carbon
+-Drainage class
+-EVI
+-NDVI
+-Slope
+-Elevation
+-Cropland extent
