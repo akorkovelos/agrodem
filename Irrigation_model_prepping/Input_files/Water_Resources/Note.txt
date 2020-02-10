@@ -1,2 +1,0 @@
-Contains shp files of Rivers and Reserviors in the AoI.
-It is good practice that perrenial rivers are used (e.g. Strahler number > 3)
