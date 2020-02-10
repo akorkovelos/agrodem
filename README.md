@@ -28,17 +28,40 @@ Visualized, the sample results may look like this:
 
 **Install from GitHub**
 
-Download or clone the repository and install the required packages:
+Download repository directly or clone it to you designated local directory using:
 
 ```
 git clone https://github.com/alekordESA/agrodem.git
-cd agrodem
-pip install -r requirements.txt
 ```
 
 **Requirements**
 
-agrodem_pilot requires Python >= 3.5. All required python packages/modules are included in the ```requirements.txt```.
+The agrodem module (as well as all supporting scripts in this repo) have been developed in Python 3. We recommend installing [Anaconda's free distribution](https://www.anaconda.com/distribution/) as suited for your operating system. 
+
+Once installed, open anaconda prompt and move to your local "agrodem" directory using:
+
+```
+> cd ..\agrodem
+```
+
+In order to be able to run the agrodem model (agrodem.ipynb) you should install all necessary packages. "agrodem_environment.ylm" contains all of these and can be easily set up by creating a new virtual environment using:
+
+```
+conda env create --name agrodem_run --file agrodem_environment.ylm
+```
+
+This might take a while.. When complete, activate the virtual environment using:
+
+```
+conda activate agrodem_run 
+```
+
+With the environment activated, you can now move to the agrodem directory and start a "jupyter notebook" session by simply typing:
+
+```
+..\agrodem> jupyter notebook 
+```
+
 **Note** that ```pyeto``` is also needed and can be installed from https://github.com/woodcrafty/PyETo.git
 
 ## Credits
