@@ -1,0 +1,13 @@
+The "Future_scenario_raster_generator" sub-folder contains the code used to generate future crop allocation rasters. This
+will be updated in due time by Neeraj - VividEconomics.
+
+Example output of this process is the "maize_BAU.tiff" located in the "Future_Scenarios\Input_data".
+
+Processing is then undertaken by two ipynb.
+
+Process 1. "Converting raster to vector.ipynb" converts raster (tiff) files to vector points. 
+
+Process 2. Merges current crop extend wit future crop allocation and creates an expected crop allocation file to be used 
+(after prepped) to the irrigation model.
+
+--** File will be updated in due time **--
