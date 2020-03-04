@@ -1,13 +1,15 @@
-The "Future_scenario_raster_generator" sub-folder contains the code used to generate future crop allocation rasters. This
-will be updated in due time by Neeraj - VividEconomics.
+Creating future scenarios can be performed using the ipynbs provided here. 
 
-Example output of this process is the "maize_BAU.tiff" located in the "Future_Scenarios\Input_data".
+Step 1. Run the "Making Future Scenarios .ipynb" which takes raw input and creates the potential extension allocation 
+of a crop
 
-Processing is then undertaken by two ipynb.
+Step 2. Run the "Converting raster to vector.ipynb" which turns the output raster (tiff) from step 1 to vector points for
+the analysis.
 
-Process 1. "Converting raster to vector.ipynb" converts raster (tiff) files to vector points. 
+Step 3. Run "Processing_Future_Scen.ipynb" which merges current crop extend with future crop allocation and creates 
+an expected crop allocation file to be used (after prepped) to the irrigation model.
 
-Process 2. Merges current crop extend wit future crop allocation and creates an expected crop allocation file to be used 
-(after prepped) to the irrigation model.
+Step 4. Run "Changing Climatic Conditions.ipynb" in order to make other changes on the input dataset; used for minor 
+sensitivity twists.
 
---** File will be updated in due time **--
+Input files for step 1 will be provided in due time as deliverable of the project.
