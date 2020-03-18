@@ -1,4 +1,4 @@
-﻿Example case study
+﻿Post analysis
 =================================
 
 Scope

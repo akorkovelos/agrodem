@@ -1,4 +1,4 @@
-Welcome to agrodem user's guide!
+﻿Welcome to agrodem user's guide!
 ===============================================
 
 Achieving universal electricity access by 2030 will require a rapid increase in the rate of new connections and in levels of investment, particularly in countries with low level of access to electricity. The challenge is significant. Designing and selecting the optimal electrification approach requires access to reliable data and information regarding electricity resource availability, demand levels, economic activity and functional infrastructure to name a few. 
@@ -19,8 +19,8 @@ Contents
    Overview
    Irrigation model
    Downscaling
-   Scenario development
-   Example case study
+   Future Scenarios
+   Post analysis
    Contact
    License
 

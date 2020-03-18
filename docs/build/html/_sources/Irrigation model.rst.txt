@@ -3,24 +3,108 @@
 
 Overview
 ****************
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.  
 
-Input data & parameters
-************************
-Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+This module estimates the electricity requirements to pump ground- and surface-water for crop irrigation. The model simulates in a simple yet scientifically sound manner the link between crop distribution, water use and electricity demand. The model is sufficiently flexible to incorporate potential changes in harvested area, climate, irrigation technologies and water management constraints. The methodology consists of three main phases, set out in the bullets below and summarised in Figure below.
 
-Code & processes
-**************************
-
-.. figure::  images/Overall_GEP_Architecture.jpg
+.. figure::  images/Irrigation_Fig.jpg
    :align:   center
 
+   Methodological flow of irrigation model
+
+**Phase 1** models the agricultural calendar and the corresponding planting, growing and harvesting seasons for crops grown in the study area, as determined through geospatial data.  Temporal and spatial criteria regarding the crop water needs in the various climate zones and land conditions will also be also included. This requires the definition of explicit agricultural zones and understanding of crop patterns in the studied area. The model can be used for both baseline and future scenarios.
+
+**Phase 2** models the reference crop evapotranspiration (ET0) and crop factors, which are combined to calculate the water requirements for each crop in each monthly period, ETc. Water demand is calculated as the difference between effective rainfall and water requirements. 
+
+**Phase 3** estimates the electricity (kWh) necessary to supply the required water using national data on water sources, irrigation methods and sources of energy. Electricity requirements depend on the morphology of the land, both underground and over ground, and takes into account the different operating and application pressure levels required under different irrigation techniques and technologies.
+
+Input data preparation
+************************
+
+**Input 1:** Crop layer where each location represents a potential demand node for irrigation. The resolution (spatial & temporal) may vary and it depends on data availability for the AOI. Once collected, the crop layer shall be transformed into a vector dataset (in csv format) that contains the following attributes: 
+
+* country (name)
+* state (name - admin 1 or 2)
+* lat, lon (deg)
+* crop (name - modelling crop)
+* Fraction (%)
+* harv_area (harvested area in ha)
+* curr_yield (Current yield in kg/ha)
+* max_yield (Maximun yield in kg/ha)
+* gw_depth (Ground water depth in m)
+* sw_dist (Distance to surface water in m)
+* elevation (in m)
+* awsc (Water storage capacity of the soil in mm/m)
+* sw_suit_idx (Surface irrigation suitability index: 1= suitable 9999= non suitable)
+* prec_i (Average precipitation in mm/month; i=1-12)
+* srad_i (Average solar irradiation per month in kJ m-2 day-1; i=1-12)
+* wind_i (Average wind speed per month in m s-1; i=1-12)
+* tavg_i, tmax_i, tmin_i(Average, Max, Min temperature per month in C; i=1-12)
+
+.. note::
+   To develop the required input data on surface water features the team has developed a `QGIS plugin <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/agrodem_plugin-master.zip>`_ that together with instructions for installation and use is available in the project's repository. 
+
+.. note::
+   In order to automate the attribute extraction process, we have developed an open source script, which conducts the extraction analysis with the use of spatial packages and Qgis. The data preparation is open source and can be found at `Agrodem_Prepping <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Agrodem_Prepping.ipynb>`_
+
+An example of such a file is available in the project's repository as `Sample_Moz_Maize_1km <https://github.com/akorkovelos/agrodem/blob/master/Sample_Moz_Maize_1km.csv>`_.
+
+.. figure::  images/Irrigation_Fig2.jpg
+   :align:   center
+
+   Sample of crop input data showing the supporting columns with attributes
+
+
+**Input 2:** Crop calendar that describes the phases of a crop within a year. Note! In our modelling, this may vary per region. That is, the modeler can specify different crop cycles per region if this information is available. An example of such a file is available in the project's repository as and `Sample_Maize_Crop_Calendar <https://github.com/akorkovelos/agrodem/blob/master/Sample_Maize_Crop_Calendar.xlsx>`_.
+
+.. figure::  images/Irrigation_Fig3.jpg
+   :align:   center
+
+   Sample crop calendar for rainfed maize in Mozambique
+
+Parameterization & model run
+******************************
+
+Once the fully attributed vector layer is complete and the crop calendar information is collected, the agrodem model is ready to run. The irrigation model is available at `agrodem <https://github.com/akorkovelos/agrodem/blob/master/agrodem.ipynb>`_. 
+
+Note that there are a few parameters that need to be determined in the model per se. These include:
+
+* Crop calendar (source FAO )
+* Kc factor for init. – dev/mid – late crop cycles (source FAO ) 
+* Current yield of the crop (in kg/ha)
+* Maximum yield of the crop (in kg/ha)
+* Effective Rooting Depth (in meters)
+* Field Application Efficiency – aeff (%)
+* Distribution Efficiency – deff (%)
+* Pumping hours per day (in hours)
+* Pressure head (in meters)
+* Powered pump efficiency – electric (%)
+* Motor efficiency (%)
+
+.. note::
+   These values are available in the literature; however, they are predominantly based on value-laden judgements and assumptions of the modeller, informed - in best case scenario – in consultation with agriculture experts. 
 
 Output data
 ****************
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+The output of the model indicates electricity requirements for irrigation of the selected crop and AoI. The spatial resolution of the results are defined by the initial vector later and stored in .csv format. Each row indicates a particular location (crop field); and each column indicates a particular attribute for this location. These include all attributes used to derive electricity requirement in the first place and products of the analysis (water and electricity requirements) per location. 
 
+Results are available in any GIS compatible, OGC complaint format (e.g .shp, .csv, .gpkg, .tiff). We have selected the .csv format as it can provide information in tabular form but also be visualized in relatively easy and straight forward manner. Results can also be aggregated to provide layers of combined electricity demand for multiple crops and regions.
+
+.. figure::  images/Irrigation_Fig4.jpg
+   :align:   center
+
+   Indicative results indicating locations of rainfed maize in need for irrigation in the base year (2017-18) in Mozambique
+
+.. note::
+   Note that only locations with non-zero electricity demand are included in the output file in order to reduce volume of data. However, one might select to extract the full list of locations if interested in other products of the analysis. 
 
 Special notes
 ****************
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
+The irrigation model elaborates on three major steps that assess electricity requirements for irrigation (surface or ground) for an AOI. It can receive crop allocation data at varying temporal and spatial resolution and is modular, thus fully customizable as per need.
+
+However,
+
+* **Level of parameterization is high** and highly dependent on experts’ value-laden judgement. That is, model input parameters should be decided with caution and under the consultation of local agriculture/energy experts.
+
+* The model can be used for a quick, screening analysis however one should be aware that **many assumptions were set in place**. For example, the model assumes that water reservoirs (both surface and underground) have unlimited flow capacity for irrigation purposes. In reality limits do exist – these are usually covered in detailed hydrological models/analyses – yet not part of this analysis. 
+
+* **Spatial resolution of input data** may have an impact on the results. Low resolution is bound to rough assumptions; whereas higher resolution can leverage spatial information with higher accuracy – and thus the insights one can get out of this exercise. This part is covered in the next section.
