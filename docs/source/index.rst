@@ -20,9 +20,7 @@ Contents
    Irrigation model
    Downscaling
    Future Scenarios
-   Post analysis
+   Post harvest activities
    Contact
-   License
-
 
 

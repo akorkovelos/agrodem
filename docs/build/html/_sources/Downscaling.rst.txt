@@ -138,3 +138,6 @@ The downscaling process is a good – yet experimental – way to achieve higher
 The FLAT model that was selected in this assignment is open source (although GAMS is needed for big datasets) and straightforward to test, use and customize. It predicts cropland allocation using pixel-level biophysical attributes which are openly available at the desired spatial resolution (1 km). The econometric approach provides estimates of the effects of biophysical factors on cropland allocation. 
 
 FLAT performance metrics are in alignment with available literature; visual inspection of results does also agree with qualitative findings from sample agricultural survey. However, the selected cross-validation approach highlighted that inconsistencies in the sample dataset are high to achieve any satisfactory results. This highlights the need for standardization of collection, processing and dissemination of survey related datasets.
+
+.. note::
+	A first and second order validation process was conducted in this project and is available in the `project report <tbd>`_. This was implemented through a Python script available as `CrossValidation <https://github.com/akorkovelos/agrodem/tree/master/agrodem_postprocessing/Cross_Validation>`_. 
