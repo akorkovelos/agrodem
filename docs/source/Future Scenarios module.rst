@@ -1,4 +1,4 @@
-﻿Future Scenarios
+﻿Future Scenarios module
 =================================
 
 Overview

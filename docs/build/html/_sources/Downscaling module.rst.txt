@@ -3,7 +3,7 @@
 
 Overview
 ****************
-High resolution crop allocation datasets are not usually available in open access sources. ‘Downscaling models’ for land cover use high-resolution biophysical data (e.g. on temperature, precipitation and/or soil pH) which have predictive power over low-resolution input data (e.g. national or admin level aggregate values of harvested area, production etc.). 
+High resolution crop allocation datasets are not usually available in open access sources. In principle, ‘downscaling models’ use high-resolution input data (e.g. in our case temperature, precipitation, soil pH etc.) which have predictive power over low-resolution input data (e.g. in our case national or admin level aggregate values of harvested area, production etc.). 
 
 In order to do so, we have used the `Fine Scale Land Allocation Tool or FLAT <https://mygeohub.org/resources/flat>`_ model.  FLAT is a statistical-based open access tool that combines dependent variable data measured at an aggregate level (e.g., state/provincial or national) with independent variable data measured at the pixel level to produce estimates of the dependent variable at the pixel level. 
 
@@ -11,19 +11,19 @@ In order to do so, we have used the `Fine Scale Land Allocation Tool or FLAT <ht
 Input data preparation
 ************************
 
-In terms of the crop harvested area, harvested land shares of e.g. maize were extracted from the `FAO Agro MAPS Global Spatial Database of Agricultural Land use Statistics <http://www.fao.org/land-water/land/land-governance/land-resources-planning-toolbox/category/details/en/c/1026341/>`_. The database provides agricultural statistics and data collected and compiled from national resources, surveys, and official in-country agencies, assuring some degree of consistency across different agricultural products and geographic areas. This consistency is considered highly important in this developed modelling approach, making it easier replicable and further applied to other regions or agricultural products by avoiding highly processed or already disaggregated input data which might be based on ad hoc assumptions or poorly documented methodological steps. 
+In terms of the dependent aggregate values of harvested area, we have used `FAO Agro MAPS Global Spatial Database of Agricultural Land use Statistics <http://www.fao.org/land-water/land/land-governance/land-resources-planning-toolbox/category/details/en/c/1026341/>`_. The database provides agricultural statistics and data collected and compiled from national resources, surveys, and official in-country agencies, assuring some degree of consistency across different agricultural products and geographic areas. This consistency is considered highly important in this exercise as it allows replicability to other regions or agricultural products.
 
-For the purposes of this study level 2 administrative crop data were used as shown in Figure below.
+For the purposes of this exercise, level 2 administrative crop data were used as shown in Figure below.
 
 .. figure::  images/Downscaling_Fig.jpg
    :align:   center
 
-   Visualisation of harvested area data of rainfed maize in Mozambique as retrieved from FAO Agro-Maps
+   Visualisation of harvested area data of rainfed maize per admin level 2 in Mozambique, as retrieved from FAO Agro-Maps
 
 .. note::
-   In case input data is outdated, they will need to be projected to the base year. For example in this case the total harvested area for maize was equal to only 782,608 ha in 2008 (input data), while 2017-18 FAO estimates indicate about 1,962,000 ha in Mozambique. This is included in a python script available as `Preparing Agro Maps <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Preparing_Agro_Maps.ipynb>`_.
+   In case input data is outdated, they will need to be projected to the base year. For example in this case the total harvested area for maize was equal to only 782,608 ha in 2008 (input data), while 2017-18 FAO estimates indicate about 1,962,000 ha in Mozambique. This can be done through a python script available as `Preparing Agro Maps <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Preparing_Agro_Maps.ipynb>`_.
 
-Then, the above dataset is transformed into a base (vector) layer at the targeted downscaling resolution. This is used later on to extract the predictor attributes per location. The steps for this are as follows:
+Then, the above dataset is transformed into a base (vector) layer at the targeted downscaling resolution (e.g. 1km). This is used later on to extract the predictor attributes per location. The steps for this are as follows:
 
 1. Project crop layer to target crs (in this case EPSG: 32737 – WGS 84/UTM zone 37S ) 
 2.	Calculate “area” in sq.km and “perimeter” in km for listed admin areas
@@ -34,9 +34,9 @@ Then, the above dataset is transformed into a base (vector) layer at the targete
 7.	Export output as a .csv file 
 
 .. note::
-	In order to facilitate the process, we have developed a `QGIS plugin <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Agrodem_plugin_creating_basegrid-master.zip>`_ that together with instructions for installationa dn use is available online. 
+	In order to facilitate the process, we have developed a `QGIS plugin <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Agrodem_plugin_creating_basegrid-master.zip>`_ that together with instructions for installationa and use is available at the project's repository.
 
-Finally, once base (vector) data layer is ready and available as a .csv file, predictor values are attributed. As predictors in the FLAT model, we may use the following 15 variables:
+Finally, once base (vector) data layer is ready and available as a .csv file, predictor values are extracted from raster layers. As predictors in the FLAT model, we may use the following variables:
 
 * Average temperature 
 * Average solar irradiation 
@@ -45,7 +45,7 @@ Finally, once base (vector) data layer is ready and available as a .csv file, pr
 * Soil Ph in H20
 * Depth to bedrock
 * Bulk density
-* lay content
+* Clay content
 * Texture class
 * Soil organic carbon
 * Drainage class
@@ -54,24 +54,21 @@ Finally, once base (vector) data layer is ready and available as a .csv file, pr
 * Elevation - Slope
 * Cropland extent
 
-.. note::
-	All of the above data can be collected either in their raw format or using a Python script (`GEE_Imagery_Extraction <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/GEE_Imagery_Extraction.ipynb>`_) that was developed specifically for the extraction of the Images and ImageCollections using the GEE API. 
-
-.. note::
-	In order to automate the attribute extraction process, a Python script (`FLAT prepping <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/FLAT%20prepping.ipynb>`_) was developed for further processing of all geospatial data, and an aggregated final .csv table was extracted as the final input to the econometric model. Data processing included:
-
-	* data cleaning
-	* transformation and integration from the different sources
-	* accounting for missing and extreme values (null or corrupted)
-	* variable name inconsistencies
-	* variable type conversions, scaling and data normalization 
-
-	With regards to the imported geospatial layers – raster (.tiff) and vector (.shp) files – each dataset is expressed and stored as a single vertical layer in the same coordinate system e.g. EPSG: 32737 – WGS 84/UTM zone 37S (+proj=utm +zone=37 +south +datum=WGS84 +units=m +no_defs for Mozambique). 
+The extraction process yields a .csv file that serves as input to the FLAT model. An example of this file is available as `FLAT_input_Maize_10km <https://github.com/akorkovelos/agrodem/tree/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Output_data/FLAT_input>`_.
 
 .. figure::  images/Downscaling_Fig2.jpg
    :align:   center
 
-   Snapshot of the .csv file used as input to the FLAT model
+   Snapshot of the .csv file to be used as input in the FLAT model
+
+.. note::
+	All of the above data can be collected either in their raw format or using a Python script (`GEE_Imagery_Extraction <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/GEE_Imagery_Extraction.ipynb>`_) that was developed specifically for the extraction of the Images and ImageCollections using the GEE API. 
+
+.. note::
+	1. The extraction process can be conducted through code available as `FLAT prepping <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/FLAT%20prepping.ipynb>`_ in the project's repository.
+
+	2. With regards to the imported geospatial layers (both raster and vector files), each one should be re-projected into the same coordinate system e.g. EPSG: 32737 – WGS 84/UTM zone 37S (+proj=utm +zone=37 +south +datum=WGS84 +units=m +no_defs) for Mozambique. 
+
 
 Parameterization & model run
 ******************************
@@ -94,7 +91,7 @@ The FLAT model can be executed with the following steps.
 					* 15 is the number of independent variables
 
 .. note::
-	This process requires `R <https://www.r-project.org/>`_ to be installed at your working station. Running the above script creates nine derivative .csv files that the FLAT model requires to run. These are usually named as cropnames, pixels, states, data, statelevelcroparea, name, pixelarea, statelevelareainfo and variables. 
+	This process requires `R <https://www.r-project.org/>`_ to be installed at your working station. Running the above script creates nine derivative .csv files that are needed in Step 3. These include cropnames, pixels, states, data, statelevelcroparea, name, pixelarea, statelevelareainfo and variables. 
 
 **Step 3.**	Copy the nine .csv files into the resource directory:
 					

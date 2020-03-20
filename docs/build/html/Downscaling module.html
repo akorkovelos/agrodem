@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Downscaling &mdash; agrodem 31-01-2020 documentation</title>
+  <title>Downscaling module &mdash; agrodem 31-01-2020 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Future Scenarios" href="Future Scenarios.html" />
-    <link rel="prev" title="Irrigation model" href="Irrigation model.html" /> 
+    <link rel="next" title="Future Scenarios module" href="Future Scenarios module.html" />
+    <link rel="prev" title="Irrigation module" href="Irrigation module.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,8 +86,8 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Irrigation model.html">Irrigation model</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Downscaling</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Irrigation module.html">Irrigation module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Downscaling module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#input-data-preparation">Input data preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#parameterization-model-run">Parameterization &amp; model run</a></li>
@@ -95,8 +95,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#special-notes">Special notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Future Scenarios.html">Future Scenarios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Post harvest activities.html">Post harvest activities (&amp; post analysis)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Future Scenarios module.html">Future Scenarios module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Post-harvesting module.html">Post-harvesting (&amp; post-analysis) module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contact.html">Contact</a></li>
 </ul>
 
@@ -143,13 +143,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Downscaling</li>
+      <li>Downscaling module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/Downscaling.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Downscaling module.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,26 +162,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="downscaling">
-<h1>Downscaling<a class="headerlink" href="#downscaling" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="downscaling-module">
+<h1>Downscaling module<a class="headerlink" href="#downscaling-module" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>High resolution crop allocation datasets are not usually available in open access sources. ‘Downscaling models’ for land cover use high-resolution biophysical data (e.g. on temperature, precipitation and/or soil pH) which have predictive power over low-resolution input data (e.g. national or admin level aggregate values of harvested area, production etc.).</p>
+<p>High resolution crop allocation datasets are not usually available in open access sources. In principle, ‘downscaling models’ use high-resolution input data (e.g. in our case temperature, precipitation, soil pH etc.) which have predictive power over low-resolution input data (e.g. in our case national or admin level aggregate values of harvested area, production etc.).</p>
 <p>In order to do so, we have used the <a class="reference external" href="https://mygeohub.org/resources/flat">Fine Scale Land Allocation Tool or FLAT</a> model.  FLAT is a statistical-based open access tool that combines dependent variable data measured at an aggregate level (e.g., state/provincial or national) with independent variable data measured at the pixel level to produce estimates of the dependent variable at the pixel level.</p>
 </div>
 <div class="section" id="input-data-preparation">
 <h2>Input data preparation<a class="headerlink" href="#input-data-preparation" title="Permalink to this headline">¶</a></h2>
-<p>In terms of the crop harvested area, harvested land shares of e.g. maize were extracted from the <a class="reference external" href="http://www.fao.org/land-water/land/land-governance/land-resources-planning-toolbox/category/details/en/c/1026341/">FAO Agro MAPS Global Spatial Database of Agricultural Land use Statistics</a>. The database provides agricultural statistics and data collected and compiled from national resources, surveys, and official in-country agencies, assuring some degree of consistency across different agricultural products and geographic areas. This consistency is considered highly important in this developed modelling approach, making it easier replicable and further applied to other regions or agricultural products by avoiding highly processed or already disaggregated input data which might be based on ad hoc assumptions or poorly documented methodological steps.</p>
-<p>For the purposes of this study level 2 administrative crop data were used as shown in Figure below.</p>
+<p>In terms of the dependent aggregate values of harvested area, we have used <a class="reference external" href="http://www.fao.org/land-water/land/land-governance/land-resources-planning-toolbox/category/details/en/c/1026341/">FAO Agro MAPS Global Spatial Database of Agricultural Land use Statistics</a>. The database provides agricultural statistics and data collected and compiled from national resources, surveys, and official in-country agencies, assuring some degree of consistency across different agricultural products and geographic areas. This consistency is considered highly important in this exercise as it allows replicability to other regions or agricultural products.</p>
+<p>For the purposes of this exercise, level 2 administrative crop data were used as shown in Figure below.</p>
 <div class="figure align-center" id="id1">
 <img alt="_images/Downscaling_Fig.jpg" src="_images/Downscaling_Fig.jpg" />
-<p class="caption"><span class="caption-text">Visualisation of harvested area data of rainfed maize in Mozambique as retrieved from FAO Agro-Maps</span></p>
+<p class="caption"><span class="caption-text">Visualisation of harvested area data of rainfed maize per admin level 2 in Mozambique, as retrieved from FAO Agro-Maps</span></p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In case input data is outdated, they will need to be projected to the base year. For example in this case the total harvested area for maize was equal to only 782,608 ha in 2008 (input data), while 2017-18 FAO estimates indicate about 1,962,000 ha in Mozambique. This is included in a python script available as <a class="reference external" href="https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Preparing_Agro_Maps.ipynb">Preparing Agro Maps</a>.</p>
+<p class="last">In case input data is outdated, they will need to be projected to the base year. For example in this case the total harvested area for maize was equal to only 782,608 ha in 2008 (input data), while 2017-18 FAO estimates indicate about 1,962,000 ha in Mozambique. This can be done through a python script available as <a class="reference external" href="https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Preparing_Agro_Maps.ipynb">Preparing Agro Maps</a>.</p>
 </div>
-<p>Then, the above dataset is transformed into a base (vector) layer at the targeted downscaling resolution. This is used later on to extract the predictor attributes per location. The steps for this are as follows:</p>
+<p>Then, the above dataset is transformed into a base (vector) layer at the targeted downscaling resolution (e.g. 1km). This is used later on to extract the predictor attributes per location. The steps for this are as follows:</p>
 <ol class="arabic simple">
 <li>Project crop layer to target crs (in this case EPSG: 32737 – WGS 84/UTM zone 37S )</li>
 <li>Calculate “area” in sq.km and “perimeter” in km for listed admin areas</li>
@@ -193,9 +193,9 @@
 </ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">In order to facilitate the process, we have developed a <a class="reference external" href="https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Agrodem_plugin_creating_basegrid-master.zip">QGIS plugin</a> that together with instructions for installationa dn use is available online.</p>
+<p class="last">In order to facilitate the process, we have developed a <a class="reference external" href="https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Agrodem_plugin_creating_basegrid-master.zip">QGIS plugin</a> that together with instructions for installationa and use is available at the project’s repository.</p>
 </div>
-<p>Finally, once base (vector) data layer is ready and available as a .csv file, predictor values are attributed. As predictors in the FLAT model, we may use the following 15 variables:</p>
+<p>Finally, once base (vector) data layer is ready and available as a .csv file, predictor values are extracted from raster layers. As predictors in the FLAT model, we may use the following variables:</p>
 <ul class="simple">
 <li>Average temperature</li>
 <li>Average solar irradiation</li>
@@ -204,7 +204,7 @@
 <li>Soil Ph in H20</li>
 <li>Depth to bedrock</li>
 <li>Bulk density</li>
-<li>lay content</li>
+<li>Clay content</li>
 <li>Texture class</li>
 <li>Soil organic carbon</li>
 <li>Drainage class</li>
@@ -213,25 +213,21 @@
 <li>Elevation - Slope</li>
 <li>Cropland extent</li>
 </ul>
+<p>The extraction process yields a .csv file that serves as input to the FLAT model. An example of this file is available as <a class="reference external" href="https://github.com/akorkovelos/agrodem/tree/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Output_data/FLAT_input">FLAT_input_Maize_10km</a>.</p>
+<div class="figure align-center" id="id2">
+<img alt="_images/Downscaling_Fig2.jpg" src="_images/Downscaling_Fig2.jpg" />
+<p class="caption"><span class="caption-text">Snapshot of the .csv file to be used as input in the FLAT model</span></p>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">All of the above data can be collected either in their raw format or using a Python script (<a class="reference external" href="https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/GEE_Imagery_Extraction.ipynb">GEE_Imagery_Extraction</a>) that was developed specifically for the extraction of the Images and ImageCollections using the GEE API.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>In order to automate the attribute extraction process, a Python script (<a class="reference external" href="https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/FLAT%20prepping.ipynb">FLAT prepping</a>) was developed for further processing of all geospatial data, and an aggregated final .csv table was extracted as the final input to the econometric model. Data processing included:</p>
-<ul class="simple">
-<li>data cleaning</li>
-<li>transformation and integration from the different sources</li>
-<li>accounting for missing and extreme values (null or corrupted)</li>
-<li>variable name inconsistencies</li>
-<li>variable type conversions, scaling and data normalization</li>
-</ul>
-<p class="last">With regards to the imported geospatial layers – raster (.tiff) and vector (.shp) files – each dataset is expressed and stored as a single vertical layer in the same coordinate system e.g. EPSG: 32737 – WGS 84/UTM zone 37S (+proj=utm +zone=37 +south +datum=WGS84 +units=m +no_defs for Mozambique).</p>
-</div>
-<div class="figure align-center" id="id2">
-<img alt="_images/Downscaling_Fig2.jpg" src="_images/Downscaling_Fig2.jpg" />
-<p class="caption"><span class="caption-text">Snapshot of the .csv file used as input to the FLAT model</span></p>
+<ol class="last arabic simple">
+<li>The extraction process can be conducted through code available as <a class="reference external" href="https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/FLAT%20prepping.ipynb">FLAT prepping</a> in the project’s repository.</li>
+<li>With regards to the imported geospatial layers (both raster and vector files), each one should be re-projected into the same coordinate system e.g. EPSG: 32737 – WGS 84/UTM zone 37S (+proj=utm +zone=37 +south +datum=WGS84 +units=m +no_defs) for Mozambique.</li>
+</ol>
 </div>
 </div>
 <div class="section" id="parameterization-model-run">
@@ -253,7 +249,7 @@
 </div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This process requires <a class="reference external" href="https://www.r-project.org/">R</a> to be installed at your working station. Running the above script creates nine derivative .csv files that the FLAT model requires to run. These are usually named as cropnames, pixels, states, data, statelevelcroparea, name, pixelarea, statelevelareainfo and variables.</p>
+<p class="last">This process requires <a class="reference external" href="https://www.r-project.org/">R</a> to be installed at your working station. Running the above script creates nine derivative .csv files that are needed in Step 3. These include cropnames, pixels, states, data, statelevelcroparea, name, pixelarea, statelevelareainfo and variables.</p>
 </div>
 <p><strong>Step 3.</strong>     Copy the nine .csv files into the resource directory:</p>
 <blockquote>
@@ -308,10 +304,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Future Scenarios.html" class="btn btn-neutral float-right" title="Future Scenarios" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Future Scenarios module.html" class="btn btn-neutral float-right" title="Future Scenarios module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Irrigation model.html" class="btn btn-neutral float-left" title="Irrigation model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Irrigation module.html" class="btn btn-neutral float-left" title="Irrigation module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

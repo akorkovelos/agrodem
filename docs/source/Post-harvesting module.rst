@@ -1,5 +1,5 @@
-﻿Post harvest activities (& post analysis)
-=========================================
+﻿Post-harvesting (& post-analysis) module
+====================================================
 
 Overview
 ****************

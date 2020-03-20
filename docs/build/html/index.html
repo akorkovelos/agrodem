@@ -85,10 +85,10 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Irrigation model.html">Irrigation model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Downscaling.html">Downscaling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Future Scenarios.html">Future Scenarios</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Post harvest activities.html">Post harvest activities (&amp; post analysis)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Irrigation module.html">Irrigation module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Downscaling module.html">Downscaling module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Future Scenarios module.html">Future Scenarios module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Post-harvesting module.html">Post-harvesting (&amp; post-analysis) module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contact.html">Contact</a></li>
 </ul>
 
@@ -158,8 +158,9 @@
 <h1>Welcome to agrodem user’s guide!<a class="headerlink" href="#welcome-to-agrodem-user-s-guide" title="Permalink to this headline">¶</a></h1>
 <p>Achieving universal electricity access by 2030 will require a rapid increase in the rate of new connections and in levels of investment, particularly in countries with low level of access to electricity. The challenge is significant. Designing and selecting the optimal electrification approach requires access to reliable data and information regarding electricity resource availability, demand levels, economic activity and functional infrastructure to name a few.</p>
 <p>The paucity of such information may hamper electrification progress. However, this situation is gradually being improved with the increasing availability of new data and analytical tools, especially in the field of geospatial analysis. Geographic Information Systems (GIS) and remote sensing techniques are becoming openly available and can now provide a range of location-specific information that has not been previously accessible. Take for example the field of agriculture, where data is rapidly approaching the scale of ‘big data’. They can provide farm stakeholders with spatial and temporal information about climate and local weather, soil conditions, crop quality, field biodiversity, and crop yields.</p>
-<p>Inclusion of agricultural electricity demand can enhance the richness of the geospatial electrification planning process. To date, demand estimation has typically depended on measurement of population density and an assumed average residential demand. On occasion, this is augmented by including large industrial and mining load. However, existing and potential demand for electricity from agricultural is missed by this process.</p>
-<p>This document presents an analytical and spatially explicit approach for estimating aspects of electricity requirements related to agricultural activities.  The underlying work has been a collaborative effort between <a class="reference external" href="https://www.vivideconomics.com/">Vivid Economics</a> and <a class="reference external" href="https://www.energy.kth.se/research/energy-systems">KTH Royal Institute of Technology</a> and is part of a multi-year <a class="reference external" href="https://www.esmap.org/">ESMAP</a>-funded project, Geospatial Electrification Planning in the Africa Region (P165617) aiming to facilitate the execution of geospatial electrification planning activities in various sub-Saharan African countries.</p>
+<p>Inclusion of agricultural electricity demand can enhance the richness of the geospatial electrification planning process. To date, demand estimation has typically depended on measurement of population density and an assumed average residential demand. On occasion, this is augmented by including some types of productive loads (e.g. large industrial or mining loads). However, existing and potential demand for electricity from activities related to agriculture and agro-business, is missed usually not included.</p>
+<p>This document presents an analytical and spatially explicit approach for estimating aspects of electricity requirements related to agricultural activities; namely irrigation and few selected post-harvest activities. The underlying work has been a collaborative effort between <a class="reference external" href="https://www.vivideconomics.com/">Vivid Economics</a> and <a class="reference external" href="https://www.energy.kth.se/research/energy-systems">KTH Royal Institute of Technology</a> and is part of a multi-year <a class="reference external" href="https://www.esmap.org/">ESMAP</a>-funded project - Geospatial Electrification Planning in the Africa Region (P165617) - aiming to facilitate the execution of geospatial electrification planning activities in various sub-Saharan African countries.</p>
+<p>The following sections provide a brief overview of this approach with indicative examples for the main processes included and links to the code developed to implement those processes in an open and reproducible way.</p>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -169,34 +170,34 @@
 <li class="toctree-l2"><a class="reference internal" href="Overview.html#recommended-navigation-flow">Recommended navigation flow</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Irrigation model.html">Irrigation model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#input-data-preparation">Input data preparation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#parameterization-model-run">Parameterization &amp; model run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#output-data">Output data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Irrigation model.html#special-notes">Special notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Irrigation module.html">Irrigation module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation module.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation module.html#input-data-preparation">Input data preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation module.html#parameterization-model-run">Parameterization &amp; model run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation module.html#output-data">Output data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Irrigation module.html#special-notes">Special notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Downscaling.html">Downscaling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#input-data-preparation">Input data preparation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#parameterization-model-run">Parameterization &amp; model run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#output-data">Output data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Downscaling.html#special-notes">Special notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Downscaling module.html">Downscaling module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling module.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling module.html#input-data-preparation">Input data preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling module.html#parameterization-model-run">Parameterization &amp; model run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling module.html#output-data">Output data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Downscaling module.html#special-notes">Special notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Future Scenarios.html">Future Scenarios</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Future Scenarios.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Future Scenarios.html#parameterization-model-run">Parameterization &amp; model run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Future Scenarios.html#output-data">Output data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Future Scenarios.html#special-notes">Special notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Future Scenarios module.html">Future Scenarios module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Future Scenarios module.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Future Scenarios module.html#parameterization-model-run">Parameterization &amp; model run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Future Scenarios module.html#output-data">Output data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Future Scenarios module.html#special-notes">Special notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Post harvest activities.html">Post harvest activities (&amp; post analysis)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Post harvest activities.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Post harvest activities.html#parameterization-model-run">Parameterization &amp; model run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Post harvest activities.html#output-data">Output data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Post harvest activities.html#special-notes">Special notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Post-harvesting module.html">Post-harvesting (&amp; post-analysis) module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Post-harvesting module.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post-harvesting module.html#parameterization-model-run">Parameterization &amp; model run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post-harvesting module.html#output-data">Output data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Post-harvesting module.html#special-notes">Special notes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Contact.html">Contact</a></li>
