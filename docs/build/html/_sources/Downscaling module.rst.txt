@@ -116,12 +116,12 @@ The FLAT model can be executed with the following steps.
 					run > Result.r (to export results in .csv format)
 
 .. note::
-	Transformation of the result (.dat) file into a .csv file that can later on be used for the irrigation model is also available in `Dat to csv <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/FLAT_model/finalresults.dat>`_.
+	Transformation of the result (.dat) file into a .csv file that can later on be used for the irrigation model can also be conducted using the script `Dat to csv <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/FLAT_model/finalresults.dat>`_.
 
 
 Output data
 ****************
-The output file provides a prediction the downscaled crop allocation. Each location (point in the vector layer) is attributed a fraction of the total harvested areas of the initial value (this refers to the admin level 2 value in this case). Aggregation of the downscaled results sum up to the original values. 
+The output file provides a prediction the downscaled crop allocation. Each location (point in the vector layer) is attributed with a fraction of the total harvested area of the admin level it belongs to. Aggregation of the downscaled results per admin layer sum up to the original values. 
 
 .. figure::  images/Downscaling_Fig3.jpg
    :align:   center
