@@ -59,6 +59,4 @@ pixelarea, statelevelareainfo, variables).
 
 --------------------------------------------------------------------------------
 
-Once the input dataset is ready then we can move on preparing the input file for the agrodem model (see [here]())
-
-in running the FLAT model. Proceed with running the FLAT model [here](Agrodem_Prepping.md)
+Once the input dataset is ready then we can move on preparing the input file for the agrodem model as described [here](https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Agrodem_Prepping.md)

@@ -61,4 +61,4 @@ In this step the grid-base map (for a certain crop) is attributed with the predi
 * Code: ```FLAT prepping.ipynb``` 
 * Sample output: ```flat_input_Maize_10km.csv```
 --------------------------------------------------------------------------------
-Once the input dataset is ready then we can move in running the FLAT model. Proceed with running the FLAT model [here](FLAT_model.md).
+Once the input dataset is ready then we can move in running the FLAT model. Proceed with running the FLAT model [here](https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/FLAT_model/FLAT_model.md).
