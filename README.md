@@ -14,16 +14,16 @@ The **agrodem** model provides an estimate of water and electricity requirements
 	- Pilot_Input_Crop_Calendar_Maize.xlsx
 - **agrodem_sample_output_data** directory contains indicative results of the agrodem model
 	- Sample_Moz_Maize_2017_1km_Results.csv
-	- [map_Moz_Maize_sample_2017.html](agrodem_sample_output_data/maps/map_Moz_Maize_sample_2017.html)
+	- map_Moz_Maize_sample_2017.html
 - **pyeto** directory contains modules needed to properly run agrodem.ipynb
 - **docs** directory contains supporting project documentation
 - **agrodem_preprocessing** directory contains scripts, Qgis plugins and sample files needed to prepare input files to the agrodem model
-	- [Agrodem_Preping](agrodem_preprocessing/Agrodem_Prepping.ipynb)
-	- Downscaling (preping - FLAT model)
+	- Agrodem_Preping
+	- Downscaling (FLAT model)
 	- Future scenarios
 - **agrodem_postprocessing** directory contains scripts and sample files related to post analysis 
-	- [Post-harvesting](agrodem_postprocessing/Post_harvesting/Result_post_analysis.ipynb)
-	- [Crossvalidation](agrodem_postprocessing/Cross_Validation)
+	- Post-harvesting
+	- Crossvalidation
 - **agrodem_environment.yml** environment info for setting up package requirements related only to the agrodem.ipynb
 -**full_project_environment.yml** environment info for setting up package requirements for all supporting processes in this repository
 
