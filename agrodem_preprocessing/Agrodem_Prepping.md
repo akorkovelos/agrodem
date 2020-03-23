@@ -14,7 +14,7 @@ The point of departure is a vector dataset (in csv format) that contains potenti
 
 See for example [```Sample_input.csv```](agrodem_preprocessing/Sample_input.csv).
 
-The ```Sample_input.csv``` represents location of crop fields and can be used at any available spatial esolution. It can for example be simply 10x10km data from Harvest Choice or the output of a more detailed downscaling method (see relevant sub-folder).
+The ```Sample_input.csv``` represents location of crop fields and can be used at any available spatial esolution. It can for example be simply 10x10km data from [Harvest Choice](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/PRFF8V) or the output of a more detailed downscaling method (see relevant sub-folder).
 
 **Note!** The "fraction" column (in the example above) is only a remnant of the downscaling process (explained on relevant sub-folder) and not essential in this step.
 
@@ -25,6 +25,8 @@ There are two main steps that are required explained below:
 - **Step 1** - Extracting atributes related to surface water availability (sw_dist, sw_depth, sw_suit_idx). For this, we have developed a [```Qgis plugin```](agrodem_preprocessing/agrodem_plugin-master.zip), which is available in this repo together with installation and use instructions.
 
 See example output of step 1 in ```Sample_output (process 1).csv```.
+
+--------------------------------------------------------------------------------
 
 - **Step 2** - Extracting all the other necessary attributes as described in **agrodem.ipynb**. For this, we have developed the ```Agrodem_Prepping.ipynb```, which takes the result from step 1 and conducts an extraction analysis with the use of spatial packages and Qgis. 
 
