@@ -1,35 +1,47 @@
-﻿# agrodem prepping
+﻿## agrodem prepping
 
-Code and scripts in this sub-folder aim to bring input data in appropriate form for the agrodem model to work as intended. 
-That is, in the right format and with the right attrobutes as shown in the "agrodem_sample_input_data" folder in the root
-directory.
+***This file provides instructions on how to prepare the crop input file ([```Pilot_Moz_Maize_Sample_1km.csv```](agrodem_sample_input_data)) for the agrodem model.***
 
-The point of departure here is a vector dataset (in csv format) that contains 
-a)unique index, 
-b)state name, 
-c)lon/lat (in deg WGS84), 
-d)crop name 
-e)harvested area in hectares (ha). 
+##### Input
 
-See for example "Sample_input.csv". 
+The point of departure is a vector dataset (in csv format) that contains potential nodes for irrigation. Each feature should be attributed with:
 
-Note that fraction column is not necessary and is only a remnant of the downscaling process 
-(explained on relevant sub-folder).
+1. unique index 
+2. state name
+3. lon/lat (in deg WGS84)
+4. crop name 
+5. harvested area in hectares (ha)
 
-The "Sample_input.csv" represents location of crop fields and can be used at any available spatial esolution. It can for 
-example be simply 10x10 km data from Harvest Choice or the output of a more detailed downscaling method (see relevant 
-sub-folder).
+See for example [```Sample_input.csv```](agrodem_preprocessing/Sample_input.csv).
 
-There are two main processes that are required explained below:
+The ```Sample_input.csv``` represents location of crop fields and can be used at any available spatial esolution. It can for example be simply 10x10km data from Harvest Choice or the output of a more detailed downscaling method (see relevant sub-folder).
 
-- Process 1 - Extracting information regarding surface water availability
-For this, we have developed a Qgis plugin. Instructions for installation and usage are available in the zipped folder.
+**Note!** The "fraction" column (in the example above) is only a remnant of the downscaling process (explained on relevant sub-folder) and not essential in this step.
 
+##### Pipeline
 
-- Process 2 - Extracting all necessary attributes as described in the first step of "agrodem.ipynb".
-For this, we have developed the "Agrodem_Prepping.ipynb" which takes the result from process 1 (see "Sample_process1_output.csv")
-and conducts an extraction analysis with the use of spatial packages and Qgis. Note that all raster datasets that are 
-necessary for the module to run are available on the project's dedicated S3 database.
+There are two main steps that are required explained below:
 
-If sucessful, the result of process 1 & 2 should be similar to the "Pilot_Moz_Maize_Sample_1km.csv" of the 
-"agrodem_sample_input_data" folder in the root directory.
+- **Step 1** - Extracting atributes related to surface water availability (sw_dist, sw_depth, sw_suit_idx). For this, we have developed a [```Qgis plugin```](agrodem_preprocessing/agrodem_plugin-master.zip), which is available in this repo together with installation and use instructions.
+
+See example output of step 1 in ```Sample_output (process 1).csv```.
+
+- **Step 2** - Extracting all the other necessary attributes as described in **agrodem.ipynb**. For this, we have developed the ```Agrodem_Prepping.ipynb```, which takes the result from step 1 and conducts an extraction analysis with the use of spatial packages and Qgis. 
+
+See example output of step 2 in ```Sample_output (process 2).csv```
+
+**Note!** This step requires acquisition of the following raster datasets:
+
+* elevation (in m)
+* gw_depth (Ground water depth in m)
+* awsc (Water storage capacity of the soil in mm/m)
+* prec_i (Average precipitation in mm/month; i=1-12)
+* srad_i (Average solar irradiation per month in kJ m-2 day-1; i=1-12)
+* wind_i (Average wind speed per month in m s-1; i=1-12)
+* tavg_i, tmax_i, tmin_i (Average, Max, Min temperature per month in C; i=1-12)
+
+These, cannot be stored in this repo due to size limitations. They are however openly available online (for more info see [project's documentation](https://agrodem.readthedocs.io/en/latest/index.html). Access to the project's dedicated S3 database can be granted upon request. 
+
+##### Output
+
+The result of process 1 & 2 should be similar to the [```Pilot_Moz_Maize_Sample_1km.csv```](agrodem_sample_input_data).
