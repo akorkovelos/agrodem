@@ -22,7 +22,7 @@ The ```Sample_input.csv``` represents location of crop fields and can be used at
 
 There are two main steps that are required explained below:
 
-- **Step 1** - Extracting atributes related to surface water availability (sw_dist, sw_depth, sw_suit_idx). For this, we have developed a [```Qgis plugin```](agrodem_preprocessing/agrodem_plugin-master.zip), which is available in this repo together with installation and use instructions.
+- **Step 1** - Extracting atributes related to surface water availability (sw_dist, sw_depth, sw_suit_idx). For this, we have developed a [```Qgis plugin```](agrodem/agrodem_preprocessing/agrodem_plugin-master.zip), which is available in this repo together with installation and use instructions.
 
 See example output of step 1 in ```Sample_output (process 1).csv```.
 
