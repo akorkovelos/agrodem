@@ -1,6 +1,6 @@
 ﻿## agrodem prepping
 
-***This file provides instructions on how to prepare the crop input file ([```Pilot_Moz_Maize_Sample_1km.csv```](agrodem_sample_input_data)) for the agrodem model.***
+***This file provides instructions on how to prepare the crop input file (```Pilot_Moz_Maize_Sample_1km.csv``` for the agrodem model.***
 
 ##### Input
 
@@ -12,7 +12,7 @@ The point of departure is a vector dataset (in csv format) that contains potenti
 4. crop name 
 5. harvested area in hectares (ha)
 
-See for example [```Sample_input.csv```](agrodem_preprocessing/Sample_input.csv).
+See for example ```Sample_input.csv```.
 
 The ```Sample_input.csv``` represents location of crop fields and can be used at any available spatial esolution. It can for example be simply 10x10km data from [Harvest Choice](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/PRFF8V) or the output of a more detailed downscaling method (see relevant sub-folder).
 
@@ -22,7 +22,7 @@ The ```Sample_input.csv``` represents location of crop fields and can be used at
 
 There are two main steps that are required explained below:
 
-- **Step 1** - Extracting atributes related to surface water availability (sw_dist, sw_depth, sw_suit_idx). For this, we have developed a [```Qgis plugin```](agrodem/agrodem_preprocessing/agrodem_plugin-master.zip), which is available in this repo together with installation and use instructions.
+- **Step 1** - Extracting atributes related to surface water availability (sw_dist, sw_depth, sw_suit_idx). For this, we have developed a ```Qgis plugin```, which is available in this repo together with installation and use instructions.
 
 See example output of step 1 in ```Sample_output (process 1).csv```.
 
@@ -46,4 +46,4 @@ These, cannot be stored in this repo due to size limitations. They are however o
 
 ##### Output
 
-The result of process 1 & 2 should be similar to the [```Pilot_Moz_Maize_Sample_1km.csv```](agrodem_sample_input_data).
+The result of process 1 & 2 should be similar to the ```Pilot_Moz_Maize_Sample_1km.csv```.

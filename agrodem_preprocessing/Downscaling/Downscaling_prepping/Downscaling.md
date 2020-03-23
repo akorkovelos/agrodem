@@ -9,10 +9,10 @@ The downscaling process may be used to fill the gap in high resolution crop dist
 
 **Step 1.** Creating crop maps using tabular data on harvested area
 
-This assumes that raw data are only avilabla in tabular format (see for example [```moz_all_data.csv```](agrodem_preprocessing/Downscaling/Downscaling_prepping/Input_data/FAO_agro_map_data). Together with admin data (see [```gadm36_MOZ_2.shp```](agrodem_preprocessing/Downscaling/Downscaling_prepping/Input_data/admin_data) they are used to create raster file outputs of crop distribution per admin level 2. 
+This assumes that raw data are only avilabla in tabular format (see for example ```moz_all_data.csv```. Together with admin data (see ```gadm36_MOZ_2.shp``` they are used to create raster file outputs of crop distribution per admin level 2. 
 
 * Code: ```Preparing_Agro_Maps.ipynb```
-* Sample output: [```Moz_Maize_2000_admin2.shp```](agrodem_preprocessing/Downscaling/Downscaling_prepping/Output_data/Crop_Maps)
+* Sample output: ```Moz_Maize_2000_admin2.shp```
 
 --------------------------------------------------------------------------------
 **Step 2.** Creating a grid-base-map of desired output spatial resolution
@@ -20,7 +20,7 @@ This assumes that raw data are only avilabla in tabular format (see for example 
 For this step we have developed a Qgis plugin which takes into account admin boundaries for the area or interest and the output of ```Step 1```. The module splits the initial low granularity map to the desired output spatial resolution (e.g. 10km, 5km, 1km, 500m) and generates an output csv file with coordinates of expected downscaled grid cells. 
 
 * Code: ```Agrodem_plugin_creating_basegrid-master.zip``` 
-* Sample output: [```Moz_Maize_2000_admin2_10km.csv```](agrodem_preprocessing/Downscaling/Downscaling_prepping/Output_data/FAO_AgroMap_Crops)
+* Sample output: ```Moz_Maize_2000_admin2_10km.csv```
 
 **Note!** installation & use instructions for the plugin are available in the zipped folder.
 
@@ -59,7 +59,6 @@ Those were collected from **Google Earth Engine (GEE)** and clipped/processed fo
 In this step the grid-base map (for a certain crop) is attributed with the predictor data. 
 
 * Code: ```FLAT prepping.ipynb``` 
-* Sample output: [```flat_input_Maize_10km.csv```](agrodem_preprocessing/Downscaling/Downscaling_prepping/Output_data/FLAT_input)
-
+* Sample output: ```flat_input_Maize_10km.csv```
 --------------------------------------------------------------------------------
-Once the input dataset is ready then we can move in running the FLAT model. Proceed with running the FLAT model [here](agrodem_preprocessing/Downscaling/FLAT_model/FLAT_model.md)
+Once the input dataset is ready then we can move in running the FLAT model. Proceed with running the FLAT model [here](FLAT_model.md).

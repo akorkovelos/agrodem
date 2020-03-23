@@ -29,7 +29,7 @@ where:
 - 1 is the number of modelled crops (we only deal with one crop at the time)
 - 15 is the number of independent variables (selected predictors)
 
-**Note!** In this project we have slightly modified the RforFLAT.R code so as to meet the needs of our analysis. You can use the one available in the FLAT_model subfolder [here](agrodem_preprocessing/Downscaling/FLAT_model)
+**Note!** In this project we have slightly modified the RforFLAT.R code so as to meet the needs of our analysis. You can use the one available in the FLAT_model subfolder.
 
 --------------------------------------------------------------------------------
 **Step 2.** Running the model
@@ -61,4 +61,4 @@ pixelarea, statelevelareainfo, variables).
 
 Once the input dataset is ready then we can move on preparing the input file for the agrodem model (see [here]())
 
-in running the FLAT model. Proceed with running the FLAT model [here](agrodem_preprocessing/Agrodem_Prepping.md)
+in running the FLAT model. Proceed with running the FLAT model [here](Agrodem_Prepping.md)
