@@ -1,6 +1,6 @@
 ﻿## agrodem prepping
 
-***This file provides instructions on how to prepare the crop input file ```Pilot_Moz_Maize_Sample_1km.csv``` for the agrodem model.***
+***This file provides instructions on how to prepare the crop input file (e.g. ```Pilot_Moz_Maize_Sample_1km.csv```) for the agrodem model.***
 
 ##### Input
 
@@ -22,17 +22,15 @@ The ```Sample_input.csv``` represents location of crop fields and can be used at
 
 There are two main steps that are required explained below:
 
-- **Step 1** - Extracting atributes related to surface water availability (sw_dist, sw_depth, sw_suit_idx). For this, we have developed a ```Qgis plugin```, which is available in this repo together with installation and use instructions.
+- **Step 1** - Extracting atributes related to surface water availability (sw_dist, sw_depth, sw_suit_idx). For this, we have developed a Qgis plugin (```Surface Water Extractor```), which is available in a separate sub-folder together with installation and use instructions.
 
-See example output of step 1 in ```Sample_output (process 1).csv```
+See example output of step 1 in ```Sample_output (step 1).csv```
 
 --------------------------------------------------------------------------------
 
 - **Step 2** - Extracting all the other necessary attributes as described in **agrodem.ipynb**. For this, we have developed the ```Agrodem_Prepping.ipynb```, which takes the result from step 1 and conducts an extraction analysis with the use of spatial packages and Qgis. 
 
-See example output of step 2 in ```Sample_output (process 2).csv```
-
-**Note!** This step requires acquisition of the following raster datasets:
+This step requires acquisition of the following raster datasets:
 
 * elevation (in m)
 * gw_depth (Ground water depth in m)
@@ -42,8 +40,10 @@ See example output of step 2 in ```Sample_output (process 2).csv```
 * wind_i (Average wind speed per month in m s-1; i=1-12)
 * tavg_i, tmax_i, tmin_i (Average, Max, Min temperature per month in C; i=1-12)
 
-These, cannot be stored in this repo due to size limitations. They are however openly available online (for more info see [project's documentation](https://agrodem.readthedocs.io/en/latest/index.html). Access to the project's dedicated S3 database can be granted upon request. 
+See example output of step 2 in ```Sample_output (step 2).csv```
+
+**Note!** These, cannot be stored in this repo due to size limitations. They are however openly available online (for more info see [project's documentation](https://agrodem.readthedocs.io/en/latest/index.html). Access to the project's dedicated S3 database can be granted upon request. 
 
 ##### Output
 
-The result of process 1 & 2 should be similar to the ```Pilot_Moz_Maize_Sample_1km.csv```
+The result of steps 1 & 2 should be similar to the ```Pilot_Moz_Maize_Sample_1km.csv```

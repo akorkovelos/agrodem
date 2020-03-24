@@ -1,4 +1,4 @@
-# Surface Water Extractor plugin
+## Surface Water Extractor plugin
 
 **This plugin was developed by KTH dES to automate the process of extracting surface water attributes to indicative crop location**.
 
@@ -60,7 +60,7 @@
 
 **Note!** All layers should be in a reference coordinate systems (e.g. WGS 84). Examples are available in the ```Input_data``` folder. 
 
-**Note!** Altough the river network can include any type of river, it is highly suggested that perennial rivers are used in order to re-assure flow through out the year. In this example, we use river that indicate [Strahler No more than 3](https://www.mdpi.com/1996-1073/11/11/3100).
+**Note!** Altough the river network can include any type of river, it is highly suggested that perennial rivers are used in order to re-assure flow through out the year. In this example, we use river that indicate [Strahler](https://www.mdpi.com/1996-1073/11/11/3100) number > 3.
 
 In addition to the previous layers, the plugin requires the .csv file containing the potential crop locations over the area of interest. There is no need adding the .csv file on QGIS, instead it can be uploaded directly through the plugin's UI. An example is available in the folder as ```sample_input.csv```. The file shall contain the following columns (attributes):
 
@@ -78,18 +78,16 @@ In addition to the previous layers, the plugin requires the .csv file containing
 
 3.	Run the plugin
 
-If succesful, the ```Sample_output (process 1).csv``` will be added in the designated workspace. Three additional columns are now added to the ones mentioned above:
+If succesful, the ```Sample_output (step 1).csv``` will be added in the designated workspace. Three additional columns are now added to the ones mentioned above:
 
 1. **elevation** - Elevation of closest surface water point [m]
 2. **sw_dist** - Distance to closest surface water [km]
 3. **sw_suit** - Factor describing suitability of using the closest surface water point [1 = suitable, 9999 = not suitable] 
 
-## Cautions
+#### Cautions
 
-* As of March 2020 The plugin can only be run on QGIS 3.4 (latest stable version). Note that newer or older version of QGIS will not work
+As of March 2020 The plugin can only be run on QGIS 3.4 (latest stable version). Note that newer or older version of QGIS will not work
 
-## Supplementary material
+#### Supplementary material
 
-* For any bugs reported please raise an issue on this repository.
-
-* For any additional information please contact the development team.
+For any bugs reported please raise an issue on this repository. For any additional information please contact the [development team](https://agrodem.readthedocs.io/en/latest/Contact.html).
