@@ -32,7 +32,7 @@ This step merges current crop extend with future crop allocation and creates an 
 
 ##### Sensitivity
 
-Another way to create new scenarios is by changing attributes of the crop input file (```Pilot_Moz_Maize_Sample_1km.csv```)`. This can help conduct a simple sensitivity analysis without re-collecting raw GIS input datasets (e.g. precipitation data). This can be done with the following code.
+Another way to create new scenarios is by changing attributes of the crop input file (```Pilot_Moz_Maize_Sample_1km.csv```). This can help conduct a simple sensitivity analysis without re-collecting raw GIS input datasets (e.g. precipitation data). This can be done with the following code.
 
 
 * Code: ```Changing Climatic Conditions.ipynb``` 
