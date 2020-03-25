@@ -71,7 +71,7 @@
 
 3.	Run the plugin
 
-If succesful, the ```sample_output_1km.csv``` (5km or 10km) will be added in the designated workspace (```e.g. Output_data```). Four additional columns are now added to the ones mentioned above:
+If succesful, the ```sample_output_5km.csv``` (or 10km) will be added in the designated workspace (```e.g. Output_data```). Four additional columns are now added to the ones mentioned above:
 
 9. **state_area_ha** - area of the state [ha]
 10. **perimeter** - perimeter of the state [km]
