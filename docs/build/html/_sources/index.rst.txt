@@ -23,6 +23,6 @@ Contents
    Downscaling module
    Future Scenarios module
    Post-harvesting module
-   Contact
+   Credit and Contact
 
 
