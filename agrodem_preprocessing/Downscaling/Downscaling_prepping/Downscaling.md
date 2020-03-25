@@ -19,10 +19,10 @@ This assumes that raw data are only avilabla in tabular format (see for example 
 
 For this step we have developed a Qgis plugin which takes into account admin boundaries for the area or interest and the output of ```Step 1```. The module splits the initial low granularity map to the desired output spatial resolution (e.g. 10km, 5km, 1km, 500m) and generates an output csv file with coordinates of expected downscaled grid cells. 
 
-* Code: ```Agrodem_plugin_creating_basegrid-master.zip``` 
+* Code: ```agrodem_creating_base_grid.zip``` 
 * Sample output: ```Moz_Maize_2000_admin2_10km.csv```
 
-**Note!** installation & use instructions for the plugin are available in the zipped folder.
+**Note!** installation & use instructions for the plugin are available in the sub-folder.
 
 --------------------------------------------------------------------------------
 

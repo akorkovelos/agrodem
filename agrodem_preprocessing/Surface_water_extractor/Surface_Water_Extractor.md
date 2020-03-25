@@ -1,6 +1,6 @@
 ## Surface Water Extractor plugin
 
-**This plugin was developed by KTH dES to automate the process of extracting surface water attributes to indicative crop location**.
+**This plugin was developed by KTH dES to automate the process of extracting surface water attributes to vector points of indicative crop distribution data**.
 
 ## Installation 
 
@@ -74,7 +74,7 @@ In addition to the previous layers, the plugin requires the .csv file containing
 
 ![image3](assets/img/run_img_8.JPG)
 
-**Note!** A more elaborate description of the instructions is available on **Instructions** sub-folder.
+**Note!** A more elaborate description of the instructions is available on ```Instructions``` sub-folder.
 
 3.	Run the plugin
 
