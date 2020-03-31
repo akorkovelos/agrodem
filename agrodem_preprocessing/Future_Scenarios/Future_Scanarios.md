@@ -12,12 +12,10 @@ Scenarios can be generated in the following steps.
 This step take into account a numner of input layer, key parameters and modelling assumptions and provides the coordinates of potential future locations of the modelled crop (in raster format).
 
 * Code: ```Making Future Scenarios.ipynb```
-* Sample output: ```To be updated```
 
 *Note!* The output of the code above is a raster (.tiff) dataset. Following to ```Step 2``` require the conversion to a vector layer. This can be done with the following code.
 
 * Code: ```Converting raster to vector.ipynb```
-* Sample output: ```To be updated```
 
 **Note!** Input datasets cannot be stored in this repo due to size limitations. They are however openly available online (for more info see [project's documentation](https://agrodem.readthedocs.io/en/latest/index.html). Access to the project's dedicated S3 database can be granted upon request. 
 
@@ -28,7 +26,6 @@ This step take into account a numner of input layer, key parameters and modellin
 This step merges current crop extend with future crop allocation and creates an expected crop allocation file to be used (after prepped) to the irrigation model.
 
 * Code: ```Processing_Future_Scen.ipynb```
-* Sample output: ```To be updated```
 
 ##### Sensitivity
 
@@ -36,7 +33,6 @@ Another way to create new scenarios is by changing attributes of the crop input 
 
 
 * Code: ```Changing Climatic Conditions.ipynb``` 
-* Output sample: ```To be updated```
 
 --------------------------------------------------------------------------------
 Once the input dataset is ready then we can move on preparing the input file for the agrodem model as described [here](https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Agrodem_Prepping.md).
