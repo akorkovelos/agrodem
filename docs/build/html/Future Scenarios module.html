@@ -90,7 +90,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Downscaling module.html">Downscaling module</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Future Scenarios module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#parameterization-model-run">Parameterization &amp; model run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data-preparation">Input data preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-run">Model run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#output-data">Output data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#special-notes">Special notes</a></li>
 </ul>
@@ -165,19 +166,82 @@
 <h1>Future Scenarios module<a class="headerlink" href="#future-scenarios-module" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<p>Electricity requirements for irrigation in the future will depend on intensification and/or expansion of selected crops over the area of interest. Here follows in brief a methodology (and supporting scripts) that may be used to answer two key questions:</p>
+<ul class="simple">
+<li>What is the physical suitability of land in terms of crop “extensification”?</li>
+<li>How much of the potential expansion is economically feasible?</li>
+</ul>
+<p>We have developed a spatially explicit approach that provides flexibility to create scenarios of future crop expansion covering both physical and economic suitability over an area of interest. Our approach builds upon a study by <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0306919214000761">Chamberlin</a>. The basic steps are presented in the Figure below.</p>
+<div class="figure align-center" id="id1">
+<img alt="_images/FutScen_Fig1.jpg" src="_images/FutScen_Fig1.jpg" />
+<p class="caption"><span class="caption-text">Methodological approach for generating future scenarios of crop expansion</span></p>
 </div>
-<div class="section" id="parameterization-model-run">
-<h2>Parameterization &amp; model run<a class="headerlink" href="#parameterization-model-run" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<p><strong>Step 1.</strong> Involves the definition of physical suitability for expansion. That is, a layer that indicates areas where crop can be expanded in the future vs areas that are restricted from crop expansion based in bio-physical factors.</p>
+<p><strong>Step 2.</strong> Involves the economic feasibility of expansion. That is, a layer that indicates hot spots for crop expansion based on high expected net revenue estimates.</p>
+<p><strong>Step 3.</strong> Involves the combination of physical and economic feasibility layers into a proxy layer for future crop expansion that reflects indicative actions related to productivity gains, environmental resilience or both.</p>
+</div>
+<div class="section" id="input-data-preparation">
+<h2>Input data preparation<a class="headerlink" href="#input-data-preparation" title="Permalink to this headline">¶</a></h2>
+<p>The preparation of <strong>physical suitability</strong> (step 1) relies on the collection and processing of the following layers.</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="http://2016africalandcover20m.esrin.esa.int/">ESA land cover map</a></li>
+<li><a class="reference external" href="https://www.iucn.org/theme/protected-areas/our-work/world-database-protected-areas">IUCN protected areas</a></li>
+<li><a class="reference external" href="https://data.jrc.ec.europa.eu/collection/id-0054">EU flood maps</a></li>
+<li><a class="reference external" href="https://www.worldpop.org/focus_areas">WorldPop population distribution</a></li>
+<li>Total new harvested area for the modelled crop at the end year (e.g. 2040)</li>
+</ol>
+<div class="figure align-center" id="id2">
+<img alt="_images/FutScen_Fig2.jpg" src="_images/FutScen_Fig2.jpg" />
+<p class="caption"><span class="caption-text">Preparing physical suitability map for future crop expansion</span></p>
+</div>
+<p>Data sets shall be collected and resampled at the same target spatial resolution (e.g. 500m) and projection system. Then, they shall be re-classified into binary (0-1) suitability layers. In general, for the population layer, cells with more than a threshold population (urban areas) shall be excluded from potential future expansion. For the land cover layer, built up areas, permanent snow and/or ice, open water, bare areas and no data shall be excluded. Similarly, protected areas and regularly flooded areas shall also be restricted from future expansion.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The classification and/or definition of extraction zones may be differentiated based on projects mandates (e.g. environmental policy, agriculture sector plans etc.).</p>
+</div>
+<hr class="docutils" />
+<p>The preparation of <strong>economic feasibility</strong> (step 2) relies on the collection and processing of the following layers and parameters.</p>
+<ol class="arabic simple" start="6">
+<li>Raster layer indicating the location of markets  (binary 0 – 1)</li>
+<li>Raster layers indicating attainable yield for modelled crop (<a class="reference external" href="http://www.fao.org/nr/gaez/about-data-portal/actual-yields-and-production/en/">GAEZ</a>)</li>
+<li>Factor of attainable yield (numerical value provided by user)</li>
+<li>Raster layer indicating output prices per ha of modelled crop</li>
+<li>Raster layer indicating production cost per ha of modelled crop</li>
+<li>Crop prices shock (numerical value provided by user)</li>
+<li>Alpha and gamma controls for distance decay equation</li>
+</ol>
+<p>Following the approach of Chamberlin et al, the suggested approach used an explicit economic framework to estimate returns to agricultural production in each grid cell, based on land productivity, market access and market prices. Cells that can be profitably cultivated are considered as suitable for cropland expansion. The economic profitability is evaluated at each grid cell location in terms of gross margins. In practice, this means calculating the difference between potential revenue and production costs, on a per hectare basis.</p>
+<div class="figure align-center">
+<img alt="_images/FutScen_Fig3.jpg" src="_images/FutScen_Fig3.jpg" />
+</div>
+<p>Potential revenue at each grid cell may be derived by multiplying potential yield estimates with farm gate prices. Prices can either be assumed constant across space or made spatially explicit. The latter can be modelled using the <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0960077915001587">distance decay</a>  function.</p>
+<div class="figure align-center" id="id3">
+<img alt="_images/FutScen_Fig4.jpg" src="_images/FutScen_Fig4.jpg" />
+<p class="caption"><span class="caption-text">Methodological diagram for identifying potential future cropland based on physical suitability and economic feasibility</span></p>
+</div>
+<p>Finally, combination of physical and economic suitability layers was used to create a proxy layer for future crop expansion that reflects indicative actions related to productivity gains, environmental resilience or both. This approach allows for various future scenarios around market prices, production costs and agricultural productivity to be explored.</p>
+</div>
+<div class="section" id="model-run">
+<h2>Model run<a class="headerlink" href="#model-run" title="Permalink to this headline">¶</a></h2>
+<p>The methods presented above can be implemented through code available as <a class="reference external" href="https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Future_Scenarios/Making%20Future%20Scenarios.ipynb">Making Future Scenarios</a> in the project’s repository.</p>
 </div>
 <div class="section" id="output-data">
 <h2>Output data<a class="headerlink" href="#output-data" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<p>The output of the model indicates potential locations of crop extensification in the future. Results are available in raster (.tiff) and can vary based on crop modelled, productivity gain assumptions and environmental resilience as described above. The Figure below shows extensification for maize in Mozambique under four example scenarios namely Sustainable Growth (SG), Environmental Stewardship (ES), Economic Growth (EG) abd Business As Usual (BAU).</p>
+<div class="figure align-center" id="id4">
+<img alt="_images/FutScen_Fig5.jpg" src="_images/FutScen_Fig5.jpg" />
+<p class="caption"><span class="caption-text">Potential areas for maize extensification in Mozambique, under the SG, ES, EG and BAU scenarios respectively (from left to the right)</span></p>
+</div>
+<div class="figure align-center" id="id5">
+<img alt="_images/FutScen_Fig6.jpg" src="_images/FutScen_Fig6.jpg" />
+<p class="caption"><span class="caption-text">Potential areas for maize extensification in Mozambique, under the SG, ES, EG and BAU scenarios respectively (from left to the right)</span></p>
+</div>
+<p>Results indicating future distribution of crops can be combined with datasets indicating existing crop allocation. The latter can then be prepared and used in the agrodem model in order to estimate water and electricity requirements for the modelled crop in the future.</p>
 </div>
 <div class="section" id="special-notes">
 <h2>Special notes<a class="headerlink" href="#special-notes" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<p>This document presented a pipeline for generating future scenarios in regards to “extensification”. That is, identifying locations for new crop areas based on policy mandates.The supporting code can be used to generate several variations of the above.</p>
+<p><strong>Note</strong> however that the methodology presented above is bound to certain limitations. For example, we assume 100 ha (full grid coverage for 1km cells) of harvested area in new locations. Also, these may overlap between different crops as we only model one crop at a time. Future work might want to further explore those assumptions.</p>
 </div>
 </div>
 
