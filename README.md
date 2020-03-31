@@ -2,7 +2,7 @@
 
 [![Documentation Status](https://readthedocs.org/projects/agrodem/badge/?version=latest)](https://agrodem.readthedocs.io/en/latest/?badge=latest)
 
-Documentation available [here](https://agrodem.readthedocs.io/en/latest/) (under development)
+Documentation available [here](https://agrodem.readthedocs.io/en/latest/).
 
 The **agrodem** model provides an estimate of water and electricity requirements for ground and/or surface water irrigation. It works for one crop at a time. Statial distribution of this crop over the area of interest (AoI) can represent current or projected values. This repository provides code, material (to the extent possible) and instructions for replicating and/or customizing the model as needed.
 
