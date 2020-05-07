@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/Agrodem_creating_base_grid" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
