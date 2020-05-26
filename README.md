@@ -49,10 +49,10 @@ Once installed, open anaconda prompt and move to your local "agrodem" directory 
 > cd ..\agrodem
 ```
 
-In order to be able to run the agrodem model (agrodem.ipynb) you should install all necessary packages. "agrodem_environment.ylm" contains all of these and can be easily set up by creating a new virtual environment using:
+In order to be able to run the agrodem model (agrodem.ipynb) you should install all necessary packages. "agrodem_environment.yml" contains all of these and can be easily set up by creating a new virtual environment using:
 
 ```
-conda env create --name agrodem_run --file agrodem_environment.ylm
+conda env create --name agrodem_run --file agrodem_environment.yml
 ```
 
 This might take a while.. When complete, activate the virtual environment using:
