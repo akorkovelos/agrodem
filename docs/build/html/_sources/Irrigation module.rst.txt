@@ -20,7 +20,7 @@ This module estimates the electricity requirements to pump ground- and surface-w
 Input data preparation
 ************************
 
-**Input 1:** Crop calendar that describes the crop phases (or cycles) within a calendat year. Note that this may vary per crop and region. That is, the modeler can specify different crop cycles per AoI (e.g. admininstrative level) if this information is available. An example of such a file is available in the project's repository as `Sample_Maize_Crop_Calendar <https://github.com/akorkovelos/agrodem/blob/master/Sample_Maize_Crop_Calendar.xlsx>`_ for rainfed maize in Mozambique.
+**Input 1:** Crop calendar that describes the crop phases (or cycles) within a calendat year. Note that this may vary per crop and region. That is, the modeler can specify different crop cycles per AoI (e.g. admininstrative level) if this information is available. An example of such a file is available in the project's repository as `Sample_Maize_Crop_Calendar <https://github.com/akorkovelos/agrodem/blob/master/agrodem_sample_input_data/Pilot_Input_Crop_Calendar_Maize.xlsx>`_ for rainfed maize in Mozambique.
 
 .. figure::  images/Irrigation_Fig3.jpg
    :align:   center
@@ -48,7 +48,7 @@ Input data preparation
 * wind_i (Average wind speed per month in m s-1; i=1-12)
 * tavg_i, tmax_i, tmin_i(Average, Max, Min temperature per month in C; i=1-12)
 
-An example of such a file is available in the project's repository as `Sample_Moz_Maize_1km <https://github.com/akorkovelos/agrodem/blob/master/Sample_Moz_Maize_1km.csv>`_.
+An example of such a file is available in the project's repository as `Sample_Moz_Maize_1km <https://github.com/akorkovelos/agrodem/blob/master/agrodem_sample_input_data/Pilot_Moz_Maize_Sample_1km.csv>`_.
 
 .. figure::  images/Irrigation_Fig2.jpg
    :align:   center
@@ -56,7 +56,7 @@ An example of such a file is available in the project's repository as `Sample_Mo
    Sample of crop input data showing the supporting columns with attributes
 
 .. note::
-   1. Features related to surface water (sw_dist, sw_depth, sw_suit_idx) can be extracted with the used of this `QGIS plugin <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/agrodem_plugin-master.zip>`_. It was developed by the team and together with instructions for installation and use. 
+   1. Features related to surface water (sw_dist, sw_depth, sw_suit_idx) can be extracted with the used of this `QGIS plugin <https://github.com/akorkovelos/agrodem/tree/master/agrodem_preprocessing/Surface_water_extractor/Plugin>`_. It was developed by the team and together with instructions for installation and use. 
 
    2. Extraction of other features can be done using the open source script `Agrodem_Prepping <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Agrodem_Prepping.ipynb>`_, which is based on spatial packages and Qgis. 
 

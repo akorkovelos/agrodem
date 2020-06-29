@@ -34,7 +34,7 @@ Then, the above dataset is transformed into a base (vector) layer at the targete
 7.	Export output as a .csv file 
 
 .. note::
-	In order to facilitate the process, we have developed a `QGIS plugin <https://github.com/akorkovelos/agrodem/blob/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Agrodem_plugin_creating_basegrid-master.zip>`_ that together with instructions for installationa and use is available at the project's repository.
+	In order to facilitate the process, we have developed a `QGIS plugin <https://github.com/akorkovelos/agrodem/tree/master/agrodem_preprocessing/Downscaling/Downscaling_prepping/Creating_base_grid>`_ that together with instructions for installation and use is available at the project's repository.
 
 Finally, once base (vector) data layer is ready and available as a .csv file, predictor values are extracted from raster layers. As predictors in the FLAT model, we may use the following variables:
 
