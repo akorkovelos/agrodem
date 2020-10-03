@@ -25,7 +25,7 @@ The **agrodem** model provides an estimate of water and electricity requirements
 	- Post-harvesting
 	- Crossvalidation
 - **agrodem_environment.yml** environment info for setting up package requirements related only to the agrodem.ipynb
--**full_project_environment.yml** environment info for setting up package requirements for all supporting processes in this repository
+- **full_project_environment.yml** environment info for setting up package requirements for all supporting processes in this repository
 
 **Note!** that sample input/output data are not fully representative but only indicative for Mozambique.
 
@@ -36,7 +36,7 @@ The **agrodem** model provides an estimate of water and electricity requirements
 Download repository directly or clone it to you designated local directory using:
 
 ```
-git clone https://github.com/alekordESA/agrodem.git
+git clone https://github.com/akorkovelos/agrodem.git
 ```
 
 **Requirements**
