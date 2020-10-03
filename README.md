@@ -36,6 +36,7 @@ The **agrodem** model provides an estimate of water and electricity requirements
 Download repository directly or clone it to you designated local directory using:
 
 ```
+conda install git
 git clone https://github.com/alekordESA/agrodem.git
 ```
 
